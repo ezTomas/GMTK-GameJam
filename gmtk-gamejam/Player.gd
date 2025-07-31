@@ -4,8 +4,13 @@ extends RigidBody2D
 @onready var ray_cast_2d: RayCast2D = $RayCast2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
+@onready var menupausa: CanvasLayer = $Pausa
+
+
 const SPEED = 50
 const JUMP_FORCE = -1500
+
+
 
 func _physics_process(delta: float) -> void:
 	var direccion = Input.get_axis("ui_left", "ui_right")
@@ -14,8 +19,7 @@ func _physics_process(delta: float) -> void:
 	
 	if _on_floor() and Input.is_action_just_pressed("ui_accept"):
 		force += JUMP_FORCE * planetaDireccion 
-
-
+		
 	if direccion:
 		lock_rotation = false
 		force += planetaDireccion.orthogonal() * SPEED * direccion
@@ -49,3 +53,4 @@ func _set_animation(direction):
 func _on_floor():
 	if ray_cast_2d.is_colliding():
 		return true
+		
