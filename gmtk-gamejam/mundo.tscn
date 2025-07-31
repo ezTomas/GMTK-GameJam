@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqfaxhl8nwo1p"]
+
+[ext_resource type="PackedScene" uid="uid://ddb2htlgb567v" path="res://Player.tscn" id="1_lgngo"]
+[ext_resource type="PackedScene" uid="uid://1swxy5i7vs57" path="res://Planet.tscn" id="2_fw4w5"]
+
+[node name="Mundo" type="Node2D"]
+
+[node name="Planet" parent="." instance=ExtResource("2_fw4w5")]
+position = Vector2(196, 193)
+scale = Vector2(2, 2)
+
+[node name="Node2D" parent="." node_paths=PackedStringArray("planet") instance=ExtResource("1_lgngo")]
+position = Vector2(195, -106)
+planet = NodePath("../Planet")
+
+[node name="Camera2D" type="Camera2D" parent="Node2D"]
+zoom = Vector2(2.76, 2.76)
