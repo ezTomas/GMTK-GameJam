@@ -1,0 +1,73 @@
+[gd_scene load_steps=10 format=3 uid="uid://ddb2htlgb567v"]
+
+[ext_resource type="Script" uid="uid://3xw5xx6poe7t" path="res://Player.gd" id="1_kpjcp"]
+[ext_resource type="Texture2D" uid="uid://b3h0y22w3s200" path="res://Assets/loop_char.png" id="2_kne1u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e80uo"]
+size = Vector2(64, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxr5p"]
+atlas = ExtResource("2_kne1u")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdg3f"]
+atlas = ExtResource("2_kne1u")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dtqjt"]
+atlas = ExtResource("2_kne1u")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ncpa"]
+atlas = ExtResource("2_kne1u")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kpjcp"]
+atlas = ExtResource("2_kne1u")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wi0c6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cxr5p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tdg3f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dtqjt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ncpa")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kpjcp")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="RigidBody2D"]
+rotation = 1.5708
+linear_damp = 9.0
+script = ExtResource("1_kpjcp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.18557e-08, -0.500001)
+shape = SubResource("RectangleShape2D_e80uo")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(51, -2.22928e-06)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_wi0c6")
+animation = &"idle"
+flip_h = true
