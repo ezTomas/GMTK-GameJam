@@ -14,4 +14,5 @@ position = Vector2(195, -106)
 planet = NodePath("../Planet")
 
 [node name="Camera2D" type="Camera2D" parent="Node2D"]
+position = Vector2(0, -1)
 zoom = Vector2(2.76, 2.76)

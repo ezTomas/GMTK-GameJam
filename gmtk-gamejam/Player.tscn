@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ddb2htlgb567v"]
+[gd_scene load_steps=11 format=3 uid="uid://ddb2htlgb567v"]
 
 [ext_resource type="Script" uid="uid://3xw5xx6poe7t" path="res://Player.gd" id="1_kpjcp"]
 [ext_resource type="Texture2D" uid="uid://b3h0y22w3s200" path="res://Assets/loop_char.png" id="2_kne1u"]
@@ -6,17 +6,21 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e80uo"]
 size = Vector2(64, 45)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cxr5p"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_wi0c6"]
 atlas = ExtResource("2_kne1u")
-region = Rect2(128, 0, 64, 64)
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dtqjt"]
+atlas = ExtResource("2_kne1u")
+region = Rect2(0, 64, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tdg3f"]
 atlas = ExtResource("2_kne1u")
 region = Rect2(192, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dtqjt"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxr5p"]
 atlas = ExtResource("2_kne1u")
-region = Rect2(0, 64, 64, 64)
+region = Rect2(128, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5ncpa"]
 atlas = ExtResource("2_kne1u")
@@ -30,13 +34,21 @@ region = Rect2(0, 0, 64, 64)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_cxr5p")
+"texture": SubResource("AtlasTexture_wi0c6")
+}],
+"loop": true,
+"name": &"Jump",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dtqjt")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tdg3f")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dtqjt")
+"texture": SubResource("AtlasTexture_cxr5p")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5ncpa")
@@ -69,5 +81,5 @@ target_position = Vector2(51, -2.22928e-06)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_wi0c6")
-animation = &"idle"
+animation = &"Jump"
 flip_h = true
