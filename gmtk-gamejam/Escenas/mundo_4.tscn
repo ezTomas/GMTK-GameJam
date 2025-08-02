@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://8oqcf00vgmbc"]
+
+[ext_resource type="PackedScene" uid="uid://ddb2htlgb567v" path="res://Escenas/Player.tscn" id="1_t17w4"]
+[ext_resource type="PackedScene" uid="uid://1swxy5i7vs57" path="res://Escenas/Planet.tscn" id="2_mc8o3"]
+[ext_resource type="Script" uid="uid://b7t0cou5gpx2t" path="res://Escenas/satelite.gd" id="3_mc8o3"]
+
+[node name="Mundo4" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(513, 336)
+zoom = Vector2(0.45, 0.45)
+
+[node name="Player" parent="." node_paths=PackedStringArray("planet") instance=ExtResource("1_t17w4")]
+position = Vector2(524, 176)
+planet = NodePath("../Planet")
+
+[node name="Planet" parent="." instance=ExtResource("2_mc8o3")]
+position = Vector2(519, 337)
+
+[node name="Satelite" type="Sprite2D" parent="."]
+position = Vector2(516, 338)
+scale = Vector2(0.4, 0.4)
+script = ExtResource("3_mc8o3")
+
+[node name="Planet2" parent="Satelite" instance=ExtResource("2_mc8o3")]
+position = Vector2(322.5, 220)
+
+[node name="Timer" type="Timer" parent="Satelite"]
+
+[connection signal="timeout" from="Satelite/Timer" to="Satelite" method="_on_timer_timeout"]
