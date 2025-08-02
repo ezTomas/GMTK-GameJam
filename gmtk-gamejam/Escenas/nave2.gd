@@ -7,7 +7,7 @@ var angle: float = 0.0
 var planet: Node2D
 
 func _ready():
-	planet = get_node("/root/Mundo4/Planet")
+	planet = get_node("/root/Mundo/Planet_nivel3")
 
 func _process(delta):
 

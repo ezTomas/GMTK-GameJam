@@ -1,0 +1,99 @@
+[gd_scene load_steps=11 format=3 uid="uid://be2mohd7bv203"]
+
+[ext_resource type="Script" uid="uid://7ms3rirnmsq4" path="res://Escenas/mundos/mundo_nivel3.gd" id="1_foaqx"]
+[ext_resource type="PackedScene" uid="uid://rf40vs04cxye" path="res://globales/Planet_nivel3.tscn" id="2_foaqx"]
+[ext_resource type="PackedScene" uid="uid://ddb2htlgb567v" path="res://Escenas/Player.tscn" id="3_eycmq"]
+[ext_resource type="Texture2D" uid="uid://bbj78g3a45iji" path="res://Assets/icon.svg" id="5_07qq2"]
+[ext_resource type="Texture2D" uid="uid://70eu82r2j72y" path="res://Assets/Nave.png" id="6_m60lv"]
+[ext_resource type="Script" uid="uid://db12jdrpho2yd" path="res://Escenas/nave2.gd" id="7_foaqx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gv8d2"]
+size = Vector2(170.026, 326.326)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tokhs"]
+size = Vector2(174.609, 58.929)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_awk8m"]
+size = Vector2(122, 124)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0dyk3"]
+size = Vector2(69.04, 88.544)
+
+[node name="Mundo" type="Node2D"]
+script = ExtResource("1_foaqx")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(593, 485)
+rotation = 0.83505
+scale = Vector2(0.865363, 0.865363)
+offset = Vector2(0.24, 0)
+zoom = Vector2(0.365, 0.365)
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+
+[node name="Planet_nivel3" parent="." instance=ExtResource("2_foaqx")]
+position = Vector2(593, 486)
+
+[node name="Player" parent="." node_paths=PackedStringArray("planet") instance=ExtResource("3_eycmq")]
+position = Vector2(732, -129)
+scale = Vector2(0.574063, 0.574063)
+planet = NodePath("../Planet_nivel3")
+JUMP_FORCE = -1250
+
+[node name="Boton" type="Area2D" parent="."]
+position = Vector2(426, 86)
+rotation = -0.44875
+scale = Vector2(0.195481, 0.195481)
+
+[node name="Sprite2D" type="Sprite2D" parent="Boton"]
+modulate = Color(0, 1, 0.482353, 1)
+position = Vector2(22.5829, -23.594)
+scale = Vector2(1.35286, 1.36866)
+texture = ExtResource("5_07qq2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boton"]
+position = Vector2(21.6276, -86.4337)
+scale = Vector2(1.00332, 1.00168)
+shape = SubResource("RectangleShape2D_gv8d2")
+
+[node name="Saltador" type="StaticBody2D" parent="."]
+position = Vector2(498, 448)
+rotation = -2.63994
+scale = Vector2(0.207093, 0.561468)
+
+[node name="Area_Saltador" type="Area2D" parent="Saltador"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Saltador/Area_Saltador"]
+position = Vector2(77.3042, 0.892883)
+shape = SubResource("RectangleShape2D_tokhs")
+
+[node name="Sprite2D" type="Sprite2D" parent="Saltador"]
+texture = ExtResource("5_07qq2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Saltador"]
+shape = SubResource("RectangleShape2D_awk8m")
+
+[node name="Nave" type="Sprite2D" parent="."]
+position = Vector2(-30, -187)
+rotation = 0.744304
+scale = Vector2(2.56147, 2.56147)
+texture = ExtResource("6_m60lv")
+script = ExtResource("7_foaqx")
+
+[node name="Timer" type="Timer" parent="Nave"]
+
+[node name="Area_Nave" type="Area2D" parent="Nave"]
+position = Vector2(226.075, 58.7512)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Nave/Area_Nave"]
+position = Vector2(-212.45, -67.5848)
+rotation = -0.0216575
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("RectangleShape2D_0dyk3")
+
+[connection signal="body_entered" from="Boton" to="." method="_on_boton_body_entered"]
+[connection signal="body_exited" from="Boton" to="." method="_on_boton_body_exited"]
+[connection signal="body_entered" from="Saltador/Area_Saltador" to="." method="_on_area_saltador_body_entered"]
+[connection signal="body_exited" from="Saltador/Area_Saltador" to="." method="_on_area_saltador_body_exited"]
+[connection signal="timeout" from="Nave/Timer" to="Nave" method="_on_timer_timeout"]
+[connection signal="body_entered" from="Nave/Area_Nave" to="." method="_on_area_nave_body_entered"]

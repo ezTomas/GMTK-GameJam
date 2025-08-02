@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://bqfaxhl8nwo1p"]
 
 [ext_resource type="PackedScene" uid="uid://ddb2htlgb567v" path="res://Escenas/Player.tscn" id="1_lgngo"]
-[ext_resource type="Script" uid="uid://chp6mvv8u85tr" path="res://Escenas/mundo.gd" id="1_otwa2"]
+[ext_resource type="Script" uid="uid://chp6mvv8u85tr" path="res://Escenas/Objetos/mundo.gd" id="1_otwa2"]
 [ext_resource type="PackedScene" uid="uid://1swxy5i7vs57" path="res://Escenas/Planet.tscn" id="2_fw4w5"]
 [ext_resource type="Texture2D" uid="uid://bbj78g3a45iji" path="res://Assets/icon.svg" id="3_fw4w5"]
 [ext_resource type="Texture2D" uid="uid://dgvukewut6afw" path="res://Assets/Muro.png" id="4_aou4a"]
