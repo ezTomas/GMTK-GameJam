@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@onready var menupausa: Node2D = $Menu
+@onready var menupausa: CanvasLayer = $"."
 # Called when the node enters the scene tree for the first time.
 
 

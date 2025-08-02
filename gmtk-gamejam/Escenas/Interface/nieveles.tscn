@@ -1,0 +1,76 @@
+[gd_scene load_steps=3 format=3 uid="uid://3qqml02dnysq"]
+
+[ext_resource type="Script" uid="uid://cu7ni6jqdnxe8" path="res://Escenas/Interface/nieveles.gd" id="1_o53u2"]
+[ext_resource type="Texture2D" uid="uid://ddxytpa4e54jp" path="res://Assets/Moneda.png" id="2_f3p5o"]
+
+[node name="Nieveles" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o53u2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0823529, 1, 1, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/HBoxContainer"]
+layout_mode = 2
+
+[node name="Nivel1" type="Button" parent="ColorRect/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Nivel 1
+"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Nivel1-Moneda" type="TextureRect" parent="ColorRect/HBoxContainer/VBoxContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("2_f3p5o")
+
+[node name="Nivel1-Moneda2" type="TextureRect" parent="ColorRect/HBoxContainer/VBoxContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("2_f3p5o")
+
+[node name="Nivel1-Moneda3" type="TextureRect" parent="ColorRect/HBoxContainer/VBoxContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("2_f3p5o")
+
+[node name="Nivel2" type="Button" parent="ColorRect/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+disabled = true
+text = "qweqwe"
+
+[node name="Nivel3" type="Button" parent="ColorRect/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+disabled = true
+text = "eqeweqw"
+
+[connection signal="pressed" from="ColorRect/HBoxContainer/VBoxContainer/Nivel1" to="." method="_on_nivel_1_pressed"]
+[connection signal="pressed" from="ColorRect/HBoxContainer/Nivel2" to="." method="_on_nivel_2_pressed"]
+[connection signal="pressed" from="ColorRect/HBoxContainer/Nivel3" to="." method="_on_nivel_3_pressed"]

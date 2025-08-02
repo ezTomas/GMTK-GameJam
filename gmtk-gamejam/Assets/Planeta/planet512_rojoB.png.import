@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c63dwlfvu6bgr"
-path="res://.godot/imported/loop_planet.png-0a89bd141b3ba001faa94fbf3b811547.ctex"
+uid="uid://dv4g6rg4vvyt5"
+path="res://.godot/imported/planet512_rojoB.png-33e5b0498e750b1e3c7a3940c9083087.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/loop_planet.png"
-dest_files=["res://.godot/imported/loop_planet.png-0a89bd141b3ba001faa94fbf3b811547.ctex"]
+source_file="res://Assets/Planeta/planet512_rojoB.png"
+dest_files=["res://.godot/imported/planet512_rojoB.png-33e5b0498e750b1e3c7a3940c9083087.ctex"]
 
 [params]
 

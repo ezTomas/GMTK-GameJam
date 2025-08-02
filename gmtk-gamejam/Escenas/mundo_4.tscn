@@ -1,30 +1,347 @@
-[gd_scene load_steps=4 format=3 uid="uid://8oqcf00vgmbc"]
+[gd_scene load_steps=33 format=3 uid="uid://8oqcf00vgmbc"]
 
+[ext_resource type="Script" uid="uid://d3ce3mqg3b6o7" path="res://Escenas/mundo_4.gd" id="1_3qjgw"]
 [ext_resource type="PackedScene" uid="uid://ddb2htlgb567v" path="res://Escenas/Player.tscn" id="1_t17w4"]
 [ext_resource type="PackedScene" uid="uid://1swxy5i7vs57" path="res://Escenas/Planet.tscn" id="2_mc8o3"]
 [ext_resource type="Script" uid="uid://b7t0cou5gpx2t" path="res://Escenas/satelite.gd" id="3_mc8o3"]
+[ext_resource type="Texture2D" uid="uid://by7uowy08pe02" path="res://Assets/Bloque.png" id="4_yesek"]
+[ext_resource type="Texture2D" uid="uid://ctoix77srm6vc" path="res://Assets/loop_blocks_launcher.png" id="5_aiedb"]
+[ext_resource type="Texture2D" uid="uid://bbj78g3a45iji" path="res://Assets/icon.svg" id="6_3qjgw"]
+[ext_resource type="Texture2D" uid="uid://70eu82r2j72y" path="res://Assets/Nave.png" id="8_jkmob"]
+[ext_resource type="Texture2D" uid="uid://pbmghxnmsj3m" path="res://Assets/Planeta/planetLab.png" id="8_yxanr"]
+[ext_resource type="Script" uid="uid://db12jdrpho2yd" path="res://Escenas/nave2.gd" id="9_yxanr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rk0hi"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ha7h5"]
+size = Vector2(174.609, 58.929)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dyt4g"]
+atlas = ExtResource("5_aiedb")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vk8im"]
+atlas = ExtResource("5_aiedb")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wea5v"]
+atlas = ExtResource("5_aiedb")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_83pgj"]
+atlas = ExtResource("5_aiedb")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svemo"]
+atlas = ExtResource("5_aiedb")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ll6qp"]
+atlas = ExtResource("5_aiedb")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jkmob"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dyt4g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vk8im")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wea5v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_83pgj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svemo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ll6qp")
+}],
+"loop": true,
+"name": &"Nave verde",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yxanr"]
+size = Vector2(122, 124)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4shwg"]
+size = Vector2(170.026, 326.326)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_plavx"]
+size = Vector2(174.609, 58.929)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7bk2g"]
+size = Vector2(122, 124)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3qjgw"]
+atlas = ExtResource("5_aiedb")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ha7h5"]
+atlas = ExtResource("5_aiedb")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkmob"]
+atlas = ExtResource("5_aiedb")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yxanr"]
+atlas = ExtResource("5_aiedb")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4shwg"]
+atlas = ExtResource("5_aiedb")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_plavx"]
+atlas = ExtResource("5_aiedb")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7bk2g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3qjgw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ha7h5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jkmob")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yxanr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4shwg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_plavx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ap5y6"]
+size = Vector2(170.026, 326.326)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_43byy"]
+size = Vector2(69.04, 88.544)
 
 [node name="Mundo4" type="Node2D"]
+script = ExtResource("1_3qjgw")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(513, 336)
-zoom = Vector2(0.45, 0.45)
+zoom = Vector2(0.295, 0.295)
 
 [node name="Player" parent="." node_paths=PackedStringArray("planet") instance=ExtResource("1_t17w4")]
-position = Vector2(524, 176)
+position = Vector2(620, 3)
 planet = NodePath("../Planet")
-
-[node name="Planet" parent="." instance=ExtResource("2_mc8o3")]
-position = Vector2(519, 337)
 
 [node name="Satelite" type="Sprite2D" parent="."]
 position = Vector2(516, 338)
 scale = Vector2(0.4, 0.4)
 script = ExtResource("3_mc8o3")
+speed = 0.4
 
 [node name="Planet2" parent="Satelite" instance=ExtResource("2_mc8o3")]
 position = Vector2(322.5, 220)
 
 [node name="Timer" type="Timer" parent="Satelite"]
 
+[node name="Satelite2" type="Sprite2D" parent="."]
+position = Vector2(516, 338)
+scale = Vector2(0.4, 0.4)
+script = ExtResource("3_mc8o3")
+radius = 1050.0
+speed = -0.5
+
+[node name="Planet2" parent="Satelite2" instance=ExtResource("2_mc8o3")]
+position = Vector2(322.5, 220)
+
+[node name="Timer" type="Timer" parent="Satelite2"]
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Bloque" type="StaticBody2D" parent="Node2D"]
+position = Vector2(468, 21)
+scale = Vector2(2.08, 2.08)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Bloque"]
+texture = ExtResource("4_yesek")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Bloque"]
+shape = SubResource("RectangleShape2D_rk0hi")
+
+[node name="Bloque2" type="StaticBody2D" parent="Node2D"]
+position = Vector2(535, -16)
+scale = Vector2(2.08, 2.08)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Bloque2"]
+texture = ExtResource("4_yesek")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Bloque2"]
+shape = SubResource("RectangleShape2D_rk0hi")
+
+[node name="Bloque3" type="StaticBody2D" parent="Node2D"]
+position = Vector2(568, -83)
+scale = Vector2(2.08, 2.08)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Bloque3"]
+texture = ExtResource("4_yesek")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Bloque3"]
+shape = SubResource("RectangleShape2D_rk0hi")
+
+[node name="Bloque4" type="StaticBody2D" parent="Node2D"]
+position = Vector2(535, 51)
+scale = Vector2(2.08, 2.08)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Bloque4"]
+texture = ExtResource("4_yesek")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Bloque4"]
+shape = SubResource("RectangleShape2D_rk0hi")
+
+[node name="Bloque5" type="StaticBody2D" parent="Node2D"]
+position = Vector2(941, 575)
+rotation = 0.578075
+scale = Vector2(0.378892, 1.87999)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Bloque5"]
+texture = ExtResource("4_yesek")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Bloque5"]
+shape = SubResource("RectangleShape2D_rk0hi")
+
+[node name="Bloque6" type="StaticBody2D" parent="Node2D"]
+position = Vector2(-99, -118)
+rotation = 0.578075
+scale = Vector2(0.378892, 1.87999)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Bloque6"]
+texture = ExtResource("4_yesek")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Bloque6"]
+shape = SubResource("RectangleShape2D_rk0hi")
+
+[node name="Saltador verde" type="StaticBody2D" parent="."]
+modulate = Color(0.160784, 0.729412, 0.270588, 1)
+position = Vector2(819, 331)
+rotation = -0.00602455
+scale = Vector2(0.286615, 0.408482)
+
+[node name="Area_Saltador_Verde" type="Area2D" parent="Saltador verde"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Saltador verde/Area_Saltador_Verde"]
+position = Vector2(77.3042, 0.892883)
+shape = SubResource("RectangleShape2D_ha7h5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Saltador verde"]
+position = Vector2(179.503, -6.24525)
+rotation = 1.5426
+scale = Vector2(7.56429, 13.3219)
+sprite_frames = SubResource("SpriteFrames_jkmob")
+animation = &"Nave verde"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Saltador verde"]
+shape = SubResource("RectangleShape2D_yxanr")
+
+[node name="Boton Verde" type="Area2D" parent="."]
+position = Vector2(964, 583)
+rotation = 2.19901
+scale = Vector2(0.195481, 0.195481)
+
+[node name="Sprite2D" type="Sprite2D" parent="Boton Verde"]
+modulate = Color(0, 1, 0.482353, 1)
+position = Vector2(22.5829, -23.594)
+scale = Vector2(1.35286, 1.36866)
+texture = ExtResource("6_3qjgw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boton Verde"]
+position = Vector2(21.6276, -86.4337)
+scale = Vector2(1.00332, 1.00168)
+shape = SubResource("RectangleShape2D_4shwg")
+
+[node name="Saltador Rosa" type="StaticBody2D" parent="."]
+position = Vector2(214, 343)
+rotation = -3.16127
+scale = Vector2(0.207093, 0.561468)
+
+[node name="Area_Saltador_rosa" type="Area2D" parent="Saltador Rosa"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Saltador Rosa/Area_Saltador_rosa"]
+position = Vector2(77.3042, 0.892883)
+shape = SubResource("RectangleShape2D_plavx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Saltador Rosa"]
+shape = SubResource("RectangleShape2D_7bk2g")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Saltador Rosa"]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(183.267, 4.89328)
+rotation = 1.58912
+scale = Vector2(-4.903, 14.606)
+sprite_frames = SubResource("SpriteFrames_7bk2g")
+
+[node name="Boton rosa" type="Area2D" parent="."]
+modulate = Color(1, 0.181919, 0.669429, 1)
+position = Vector2(-117, -125)
+rotation = -0.984116
+scale = Vector2(0.195481, 0.195481)
+
+[node name="Sprite2D" type="Sprite2D" parent="Boton rosa"]
+modulate = Color(0, 1, 0.482353, 1)
+position = Vector2(22.5829, -23.594)
+scale = Vector2(1.35286, 1.36866)
+texture = ExtResource("6_3qjgw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boton rosa"]
+position = Vector2(21.6276, -86.4337)
+scale = Vector2(1.00332, 1.00168)
+shape = SubResource("RectangleShape2D_ap5y6")
+
+[node name="Planet" parent="." instance=ExtResource("2_mc8o3")]
+position = Vector2(519, 337)
+scale = Vector2(2.30291, 2.30291)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Planet"]
+scale = Vector2(0.256, 0.256)
+texture = ExtResource("8_yxanr")
+
+[node name="Nave2" type="Sprite2D" parent="."]
+position = Vector2(-328, -128)
+rotation = 3.73012
+scale = Vector2(2.56147, 2.56147)
+texture = ExtResource("8_jkmob")
+script = ExtResource("9_yxanr")
+radius = 1200.0
+speed = 0.9
+
+[node name="Area_Nave_2" type="Area2D" parent="Nave2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Nave2/Area_Nave_2"]
+position = Vector2(-17.3073, -11.6138)
+rotation = -0.0216575
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("RectangleShape2D_43byy")
+
 [connection signal="timeout" from="Satelite/Timer" to="Satelite" method="_on_timer_timeout"]
+[connection signal="timeout" from="Satelite2/Timer" to="Satelite2" method="_on_timer_timeout"]
+[connection signal="body_entered" from="Saltador verde/Area_Saltador_Verde" to="." method="_on_area_saltador_verde_body_entered"]
+[connection signal="body_exited" from="Saltador verde/Area_Saltador_Verde" to="." method="_on_area_saltador_verde_body_exited"]
+[connection signal="body_entered" from="Boton Verde" to="." method="_on_boton_verde_body_entered"]
+[connection signal="body_exited" from="Boton Verde" to="." method="_on_boton_verde_body_exited"]
+[connection signal="body_entered" from="Saltador Rosa/Area_Saltador_rosa" to="." method="_on_area_saltador_rosa_body_entered"]
+[connection signal="body_exited" from="Saltador Rosa/Area_Saltador_rosa" to="." method="_on_area_saltador_rosa_body_exited"]
+[connection signal="body_entered" from="Boton rosa" to="." method="_on_boton_rosa_body_entered"]
+[connection signal="body_exited" from="Boton rosa" to="." method="_on_boton_rosa_body_exited"]
+[connection signal="body_entered" from="Nave2/Area_Nave_2" to="." method="_on_area_nave_2_body_entered"]

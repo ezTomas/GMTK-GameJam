@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bqfaxhl8nwo1p"]
+[gd_scene load_steps=14 format=3 uid="uid://bqfaxhl8nwo1p"]
 
 [ext_resource type="PackedScene" uid="uid://ddb2htlgb567v" path="res://Escenas/Player.tscn" id="1_lgngo"]
 [ext_resource type="Script" uid="uid://chp6mvv8u85tr" path="res://Escenas/mundo.gd" id="1_otwa2"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dgvukewut6afw" path="res://Assets/Muro.png" id="4_aou4a"]
 [ext_resource type="Texture2D" uid="uid://70eu82r2j72y" path="res://Assets/Nave.png" id="6_2hh7m"]
 [ext_resource type="Script" uid="uid://dp7q5drt1fdb1" path="res://Escenas/sprite_2d.gd" id="7_t8jxu"]
+[ext_resource type="PackedScene" uid="uid://v4r7s6gubluy" path="res://Escenas/Objetos/coleccionable.tscn" id="8_tokhs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_otwa2"]
 size = Vector2(222.347, 242.697)
@@ -73,7 +74,7 @@ scale = Vector2(1.00332, 1.00168)
 shape = SubResource("RectangleShape2D_gv8d2")
 
 [node name="Saltador" type="StaticBody2D" parent="."]
-position = Vector2(939, 472)
+position = Vector2(948, 473)
 scale = Vector2(0.207093, 0.561468)
 
 [node name="Area_Saltador" type="Area2D" parent="Saltador"]
@@ -105,9 +106,24 @@ rotation = -0.0216575
 scale = Vector2(0.999999, 0.999999)
 shape = SubResource("RectangleShape2D_0dyk3")
 
+[node name="Coleccionable" parent="." instance=ExtResource("8_tokhs")]
+position = Vector2(853, 222)
+scale = Vector2(1.7503, 1.7503)
+
+[node name="Coleccionable2" parent="." instance=ExtResource("8_tokhs")]
+position = Vector2(1118, 474)
+scale = Vector2(1.7503, 1.7503)
+
+[node name="Coleccionable3" parent="." instance=ExtResource("8_tokhs")]
+position = Vector2(249, 361)
+scale = Vector2(1.7503, 1.7503)
+
 [connection signal="body_entered" from="Boton" to="." method="_on_boton_body_entered"]
 [connection signal="body_exited" from="Boton" to="." method="_on_boton_body_exited"]
 [connection signal="body_entered" from="Saltador/Area_Saltador" to="." method="_on_area_saltador_body_entered"]
 [connection signal="body_exited" from="Saltador/Area_Saltador" to="." method="_on_area_saltador_body_exited"]
 [connection signal="timeout" from="Nave/Timer" to="Nave" method="_on_timer_timeout"]
 [connection signal="body_entered" from="Nave/Area_Nave" to="." method="_on_area_nave_body_entered"]
+[connection signal="body_entered" from="Coleccionable" to="." method="_on_coleccionable_body_entered"]
+[connection signal="body_entered" from="Coleccionable2" to="." method="_on_coleccionable_2_body_entered"]
+[connection signal="body_entered" from="Coleccionable3" to="." method="_on_coleccionable_3_body_entered"]

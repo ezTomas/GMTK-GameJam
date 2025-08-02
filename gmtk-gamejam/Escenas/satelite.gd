@@ -1,7 +1,7 @@
 extends Sprite2D
 
-@export var radius: float = 650.0  
-@export var speed: float = 1.0   
+@export var radius: float = 750.0  
+@export var speed: float = 0.5
 
 var angle: float = 0.0
 var planet: Node2D

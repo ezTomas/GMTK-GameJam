@@ -1,56 +1,75 @@
-[gd_scene load_steps=2 format=3 uid="uid://bwege8qxc6m6u"]
+[gd_scene load_steps=7 format=3 uid="uid://bwege8qxc6m6u"]
 
 [ext_resource type="Script" uid="uid://qrsn2yn11fm" path="res://Escenas/Interface/pausa.gd" id="1_wk6u8"]
+[ext_resource type="Texture2D" uid="uid://c6ix7k3hq3h5b" path="res://Assets/Menu/pause/Overlay.png" id="2_jvqo5"]
+[ext_resource type="Texture2D" uid="uid://b86tfhhmypwfa" path="res://Assets/Menu/pause/salirdawe.png" id="3_fonsr"]
+[ext_resource type="Texture2D" uid="uid://b73cq455wt3o0" path="res://Assets/Menu/pause/salir.png" id="4_s4flh"]
+[ext_resource type="Texture2D" uid="uid://fg03thic4tre" path="res://Assets/Menu/pause/Menuprin.png" id="5_idly5"]
+[ext_resource type="Texture2D" uid="uid://ds0jkv2yvo24g" path="res://Assets/Menu/pause/Sprite-0004.png" id="6_kdsn2"]
 
 [node name="Pausa" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_wk6u8")
 
-[node name="Menu" type="Node2D" parent="."]
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Menu"]
-layout_direction = 2
+[node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 514.0
-offset_top = 273.5
-offset_right = 638.0
-offset_bottom = 374.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_jvqo5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -165.5
+offset_top = -988.0
+offset_right = 165.5
+offset_bottom = 988.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 8
 alignment = 1
 
-[node name="ColorRect" type="ColorRect" parent="Menu/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
-color = Color(0, 1, 1, 1)
+size_flags_horizontal = 4
 
-[node name="Reanudar" type="Button" parent="Menu/VBoxContainer/ColorRect"]
+[node name="Reanudar" type="Button" parent="VBoxContainer/VBoxContainer"]
 layout_mode = 2
-offset_top = 4.0
-offset_right = 124.0
-offset_bottom = 35.0
-text = "Reanudar"
+size_flags_horizontal = 4
+size_flags_vertical = 4
+icon = ExtResource("3_fonsr")
+flat = true
 
-[node name="Menu Principal" type="Button" parent="Menu/VBoxContainer/ColorRect"]
+[node name="Controles" type="Button" parent="VBoxContainer/VBoxContainer"]
 layout_mode = 2
-offset_top = 35.0
-offset_right = 124.0
-offset_bottom = 66.0
-text = "Menu Principal
+icon = ExtResource("6_kdsn2")
+flat = true
+
+[node name="Menu Principal" type="Button" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+icon = ExtResource("5_idly5")
+flat = true
+
+[node name="Salir" type="Button" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "
 "
+icon = ExtResource("4_s4flh")
+flat = true
 
-[node name="Salir" type="Button" parent="Menu/VBoxContainer/ColorRect"]
-layout_mode = 2
-offset_top = 70.0
-offset_right = 124.0
-offset_bottom = 101.0
-text = "Salir
-"
-
-[connection signal="pressed" from="Menu/VBoxContainer/ColorRect/Reanudar" to="." method="_on_reanudar_pressed"]
-[connection signal="pressed" from="Menu/VBoxContainer/ColorRect/Menu Principal" to="." method="_on_menu_principal_pressed"]
-[connection signal="pressed" from="Menu/VBoxContainer/ColorRect/Salir" to="." method="_on_salir_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/Reanudar" to="." method="_on_reanudar_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/Menu Principal" to="." method="_on_menu_principal_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/Salir" to="." method="_on_salir_pressed"]

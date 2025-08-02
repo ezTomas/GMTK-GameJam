@@ -15,6 +15,10 @@ run/main_scene="uid://cjlgw05kspl0l"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://Assets/icon.svg"
 
+[autoload]
+
+Global="*res://globales/Global.gd"
+
 [global_group]
 
 Player=""
