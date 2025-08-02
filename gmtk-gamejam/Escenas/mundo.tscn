@@ -11,16 +11,16 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_otwa2"]
 size = Vector2(222.347, 242.697)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fw4w5"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gv8d2"]
 size = Vector2(170.026, 326.326)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_aou4a"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tokhs"]
 size = Vector2(174.609, 58.929)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ckkb"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_awk8m"]
 size = Vector2(122, 124)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_t8jxu"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0dyk3"]
 size = Vector2(69.04, 88.544)
 
 [node name="Mundo" type="Node2D"]
@@ -38,7 +38,7 @@ position = Vector2(601, 475)
 scale = Vector2(2.66038, 2.66038)
 
 [node name="Player" parent="." node_paths=PackedStringArray("planet") instance=ExtResource("1_lgngo")]
-position = Vector2(736, 106)
+position = Vector2(732, 107)
 scale = Vector2(0.574063, 0.574063)
 planet = NodePath("../Planet")
 
@@ -70,7 +70,7 @@ texture = ExtResource("3_fw4w5")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boton"]
 position = Vector2(21.6276, -86.4337)
 scale = Vector2(1.00332, 1.00168)
-shape = SubResource("RectangleShape2D_fw4w5")
+shape = SubResource("RectangleShape2D_gv8d2")
 
 [node name="Saltador" type="StaticBody2D" parent="."]
 position = Vector2(939, 472)
@@ -80,16 +80,16 @@ scale = Vector2(0.207093, 0.561468)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Saltador/Area_Saltador"]
 position = Vector2(77.3042, 0.892883)
-shape = SubResource("RectangleShape2D_aou4a")
+shape = SubResource("RectangleShape2D_tokhs")
 
 [node name="Sprite2D" type="Sprite2D" parent="Saltador"]
 texture = ExtResource("3_fw4w5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Saltador"]
-shape = SubResource("RectangleShape2D_5ckkb")
+shape = SubResource("RectangleShape2D_awk8m")
 
 [node name="Nave" type="Sprite2D" parent="."]
-position = Vector2(-199, -234)
+position = Vector2(172, 220)
 rotation = 0.744304
 scale = Vector2(2.56147, 2.56147)
 texture = ExtResource("6_2hh7m")
@@ -103,7 +103,7 @@ script = ExtResource("7_t8jxu")
 position = Vector2(-17.3073, -11.6138)
 rotation = -0.0216575
 scale = Vector2(0.999999, 0.999999)
-shape = SubResource("RectangleShape2D_t8jxu")
+shape = SubResource("RectangleShape2D_0dyk3")
 
 [connection signal="body_entered" from="Boton" to="." method="_on_boton_body_entered"]
 [connection signal="body_exited" from="Boton" to="." method="_on_boton_body_exited"]

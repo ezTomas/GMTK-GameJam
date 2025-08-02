@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhti0gwmr2fc3"]
+
+[ext_resource type="Texture2D" uid="uid://bbj78g3a45iji" path="res://Assets/icon.svg" id="1_ru1af"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jv8a0"]
+size = Vector2(170.026, 326.326)
+
+[node name="Boton" type="Node2D"]
+
+[node name="Boton" type="Area2D" parent="."]
+position = Vector2(428, 171)
+rotation = -0.44875
+scale = Vector2(0.195481, 0.195481)
+
+[node name="Sprite2D" type="Sprite2D" parent="Boton"]
+modulate = Color(0, 1, 0.482353, 1)
+position = Vector2(22.5829, -23.594)
+scale = Vector2(1.35286, 1.36866)
+texture = ExtResource("1_ru1af")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boton"]
+position = Vector2(21.6276, -86.4337)
+scale = Vector2(1.00332, 1.00168)
+shape = SubResource("RectangleShape2D_jv8a0")

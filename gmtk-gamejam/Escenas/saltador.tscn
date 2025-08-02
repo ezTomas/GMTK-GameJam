@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://i5jccj8hj4ht"]
+
+[ext_resource type="Texture2D" uid="uid://bbj78g3a45iji" path="res://Assets/icon.svg" id="1_4lg6g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m8vjk"]
+size = Vector2(174.609, 58.929)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_84qtu"]
+size = Vector2(122, 124)
+
+[node name="Saltador" type="Node2D"]
+
+[node name="Saltador" type="StaticBody2D" parent="."]
+position = Vector2(939, 472)
+scale = Vector2(0.207093, 0.561468)
+
+[node name="Area_Saltador" type="Area2D" parent="Saltador"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Saltador/Area_Saltador"]
+position = Vector2(77.3042, 0.892883)
+shape = SubResource("RectangleShape2D_m8vjk")
+
+[node name="Sprite2D" type="Sprite2D" parent="Saltador"]
+texture = ExtResource("1_4lg6g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Saltador"]
+shape = SubResource("RectangleShape2D_84qtu")

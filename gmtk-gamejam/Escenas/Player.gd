@@ -8,7 +8,7 @@ extends RigidBody2D
 
 
 const SPEED = 70
-@export var JUMP_FORCE = -1500
+@export var JUMP_FORCE = -850
 
 
 
