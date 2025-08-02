@@ -7,7 +7,7 @@ extends RigidBody2D
 @onready var menupausa: CanvasLayer = $Pausa
 
 
-const SPEED = 50
+const SPEED = 70
 @export var JUMP_FORCE = -1500
 
 

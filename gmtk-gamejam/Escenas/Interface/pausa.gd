@@ -21,7 +21,7 @@ func _on_reanudar_pressed() -> void:
 	menupausa.visible = get_tree().paused
 
 func _on_menu_principal_pressed() -> void:
-	get_tree().change_scene_to_file("res://menu_principal.tscn")
+	get_tree().change_scene_to_file("res://Escenas/Interface/menu_principal.tscn")
 
 
 func _on_salir_pressed() -> void:

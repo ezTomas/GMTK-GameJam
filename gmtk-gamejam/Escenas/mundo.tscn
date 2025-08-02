@@ -1,0 +1,113 @@
+[gd_scene load_steps=13 format=3 uid="uid://bqfaxhl8nwo1p"]
+
+[ext_resource type="PackedScene" uid="uid://ddb2htlgb567v" path="res://Escenas/Player.tscn" id="1_lgngo"]
+[ext_resource type="Script" uid="uid://chp6mvv8u85tr" path="res://Escenas/mundo.gd" id="1_otwa2"]
+[ext_resource type="PackedScene" uid="uid://1swxy5i7vs57" path="res://Escenas/Planet.tscn" id="2_fw4w5"]
+[ext_resource type="Texture2D" uid="uid://bbj78g3a45iji" path="res://Assets/icon.svg" id="3_fw4w5"]
+[ext_resource type="Texture2D" uid="uid://dgvukewut6afw" path="res://Assets/Muro.png" id="4_aou4a"]
+[ext_resource type="Texture2D" uid="uid://70eu82r2j72y" path="res://Assets/Nave.png" id="6_2hh7m"]
+[ext_resource type="Script" uid="uid://dp7q5drt1fdb1" path="res://Escenas/sprite_2d.gd" id="7_t8jxu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_otwa2"]
+size = Vector2(222.347, 242.697)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fw4w5"]
+size = Vector2(170.026, 326.326)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aou4a"]
+size = Vector2(174.609, 58.929)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ckkb"]
+size = Vector2(122, 124)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t8jxu"]
+size = Vector2(69.04, 88.544)
+
+[node name="Mundo" type="Node2D"]
+script = ExtResource("1_otwa2")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(593, 485)
+rotation = 0.83505
+scale = Vector2(0.865363, 0.865363)
+offset = Vector2(0.24, 0)
+zoom = Vector2(0.545, 0.545)
+
+[node name="Planet" parent="." instance=ExtResource("2_fw4w5")]
+position = Vector2(601, 475)
+scale = Vector2(2.66038, 2.66038)
+
+[node name="Player" parent="." node_paths=PackedStringArray("planet") instance=ExtResource("1_lgngo")]
+position = Vector2(736, 106)
+scale = Vector2(0.574063, 0.574063)
+planet = NodePath("../Planet")
+
+[node name="MuroPrincipal" type="StaticBody2D" parent="."]
+position = Vector2(601, 84)
+scale = Vector2(0.574063, 0.574063)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MuroPrincipal"]
+position = Vector2(-2.26105, -30.9024)
+scale = Vector2(0.4, 1)
+shape = SubResource("RectangleShape2D_otwa2")
+
+[node name="Sprite2D" type="Sprite2D" parent="MuroPrincipal"]
+position = Vector2(4.52243, -21.1041)
+scale = Vector2(4.00412, 6.86326)
+texture = ExtResource("4_aou4a")
+
+[node name="Boton" type="Area2D" parent="."]
+position = Vector2(428, 171)
+rotation = -0.44875
+scale = Vector2(0.195481, 0.195481)
+
+[node name="Sprite2D" type="Sprite2D" parent="Boton"]
+modulate = Color(0, 1, 0.482353, 1)
+position = Vector2(22.5829, -23.594)
+scale = Vector2(1.35286, 1.36866)
+texture = ExtResource("3_fw4w5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boton"]
+position = Vector2(21.6276, -86.4337)
+scale = Vector2(1.00332, 1.00168)
+shape = SubResource("RectangleShape2D_fw4w5")
+
+[node name="Saltador" type="StaticBody2D" parent="."]
+position = Vector2(939, 472)
+scale = Vector2(0.207093, 0.561468)
+
+[node name="Area_Saltador" type="Area2D" parent="Saltador"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Saltador/Area_Saltador"]
+position = Vector2(77.3042, 0.892883)
+shape = SubResource("RectangleShape2D_aou4a")
+
+[node name="Sprite2D" type="Sprite2D" parent="Saltador"]
+texture = ExtResource("3_fw4w5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Saltador"]
+shape = SubResource("RectangleShape2D_5ckkb")
+
+[node name="Nave" type="Sprite2D" parent="."]
+position = Vector2(-199, -234)
+rotation = 0.744304
+scale = Vector2(2.56147, 2.56147)
+texture = ExtResource("6_2hh7m")
+script = ExtResource("7_t8jxu")
+
+[node name="Timer" type="Timer" parent="Nave"]
+
+[node name="Area_Nave" type="Area2D" parent="Nave"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Nave/Area_Nave"]
+position = Vector2(-17.3073, -11.6138)
+rotation = -0.0216575
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("RectangleShape2D_t8jxu")
+
+[connection signal="body_entered" from="Boton" to="." method="_on_boton_body_entered"]
+[connection signal="body_exited" from="Boton" to="." method="_on_boton_body_exited"]
+[connection signal="body_entered" from="Saltador/Area_Saltador" to="." method="_on_area_saltador_body_entered"]
+[connection signal="body_exited" from="Saltador/Area_Saltador" to="." method="_on_area_saltador_body_exited"]
+[connection signal="timeout" from="Nave/Timer" to="Nave" method="_on_timer_timeout"]
+[connection signal="body_entered" from="Nave/Area_Nave" to="." method="_on_area_nave_body_entered"]

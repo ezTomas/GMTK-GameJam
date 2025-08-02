@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbococ6u56x6l"
-path="res://.godot/imported/PJ Caminar.png-4239a57bfd03f0fed9d299d9460184e1.ctex"
+uid="uid://dgvukewut6afw"
+path="res://.godot/imported/Muro.png-2c3f0d083d6769cf2522775f4e6b36c5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PJ Caminar.png"
-dest_files=["res://.godot/imported/PJ Caminar.png-4239a57bfd03f0fed9d299d9460184e1.ctex"]
+source_file="res://Assets/Muro.png"
+dest_files=["res://.godot/imported/Muro.png-2c3f0d083d6769cf2522775f4e6b36c5.ctex"]
 
 [params]
 

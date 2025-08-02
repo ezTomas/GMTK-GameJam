@@ -13,7 +13,7 @@ config_version=5
 config/name="GMTK-GameJam"
 run/main_scene="uid://cjlgw05kspl0l"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://Assets/icon.svg"
 
 [global_group]
 

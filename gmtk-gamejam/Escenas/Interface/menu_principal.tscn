@@ -1,0 +1,71 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjlgw05kspl0l"]
+
+[ext_resource type="Script" uid="uid://vubq2w1fleab" path="res://Escenas/Interface/menu_principal.gd" id="1_bj1uy"]
+[ext_resource type="Texture2D" uid="uid://b7e6p6y0bv7nq" path="res://Assets/Menu/Main Menu.png" id="2_0qco5"]
+[ext_resource type="Texture2D" uid="uid://cya5cfc0fliab" path="res://Assets/Menu/Menu principal logo.png" id="3_qgxs2"]
+[ext_resource type="Texture2D" uid="uid://cy3887hluqd6f" path="res://Assets/Menu/Boton Start.png" id="4_4iw2s"]
+
+[node name="Menu principal" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bj1uy")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_0qco5")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_qgxs2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -201.0
+offset_top = -169.0
+offset_right = 201.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="Jugar" type="Button" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+icon = ExtResource("4_4iw2s")
+flat = true
+
+[node name="Creditos" type="Button" parent="VBoxContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 6
+text = "Creditos"
+
+[node name="Salir" type="Button" parent="VBoxContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Salir
+"
+
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/Jugar" to="." method="_on_jugar_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/Creditos" to="." method="_on_creditos_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/Salir" to="." method="_on_salir_pressed"]
