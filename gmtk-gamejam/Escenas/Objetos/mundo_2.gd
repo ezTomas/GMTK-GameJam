@@ -24,6 +24,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if jugador_dentro_verde == true and Input.is_action_pressed("Presionar"):
 		boton_verde_activado = true
+		$"Saltador verde/AnimatedSprite2D".play("Nave verde")
 	
 	if jugador_dentro_rosa == true and Input.is_action_pressed("Presionar"):
 		boton_rosa_activado = true
@@ -77,14 +78,12 @@ func _on_area_saltador_verde_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player") and boton_verde_activado == true:
 		var player = get_tree().get_nodes_in_group("Player")
 		player[0].JUMP_FORCE -= 2500
-		$"Saltador verde/AnimatedSprite2D".play("Nave verde")
 		salto_pontenciado = true
 
 func _on_area_saltador_verde_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player") and salto_pontenciado == true:
 		var player = get_tree().get_nodes_in_group("Player")
 		player[0].JUMP_FORCE += 2500
-		$"Saltador verde/AnimatedSprite2D".stop()
 		salto_pontenciado = false
 
 func _on_boton_verde_body_entered(body: Node2D) -> void:
