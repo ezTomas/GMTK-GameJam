@@ -1,14 +1,16 @@
-[gd_scene load_steps=18 format=3 uid="uid://be2mohd7bv203"]
+[gd_scene load_steps=24 format=3 uid="uid://be2mohd7bv203"]
 
 [ext_resource type="Script" uid="uid://7ms3rirnmsq4" path="res://Escenas/mundos/mundo_nivel3.gd" id="1_foaqx"]
 [ext_resource type="PackedScene" uid="uid://rf40vs04cxye" path="res://globales/Planet_nivel3.tscn" id="2_foaqx"]
 [ext_resource type="Texture2D" uid="uid://b7e6p6y0bv7nq" path="res://Assets/Menu/Main Menu.png" id="2_m7mtk"]
+[ext_resource type="AudioStream" uid="uid://b5cn847ign4mm" path="res://Audio/level 3.wav" id="2_r4dmr"]
 [ext_resource type="PackedScene" uid="uid://ddb2htlgb567v" path="res://Escenas/Player.tscn" id="3_eycmq"]
 [ext_resource type="Texture2D" uid="uid://qnfjajm58rdh" path="res://Assets/Planeta/light.png" id="5_2rjdx"]
 [ext_resource type="Texture2D" uid="uid://bbj78g3a45iji" path="res://Assets/icon.svg" id="5_07qq2"]
 [ext_resource type="Texture2D" uid="uid://70eu82r2j72y" path="res://Assets/Nave.png" id="6_m60lv"]
 [ext_resource type="Script" uid="uid://db12jdrpho2yd" path="res://Escenas/nave/nave2.gd" id="7_foaqx"]
 [ext_resource type="Texture2D" uid="uid://by7uowy08pe02" path="res://Assets/Bloque.png" id="7_t757d"]
+[ext_resource type="Texture2D" uid="uid://c5nphgrv24j7u" path="res://Assets/Planeta/loop-boton.png" id="7_u0ily"]
 [ext_resource type="Texture2D" uid="uid://dcc14pejdxubu" path="res://Assets/Planeta/planet512_rojoA.png" id="9_yru0f"]
 [ext_resource type="PackedScene" uid="uid://v4r7s6gubluy" path="res://Escenas/Objetos/coleccionable.tscn" id="10_yru0f"]
 
@@ -17,6 +19,40 @@ size = Vector2(32.2751, 31.9797)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gv8d2"]
 size = Vector2(170.026, 326.326)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4dmr"]
+atlas = ExtResource("7_u0ily")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_soywl"]
+atlas = ExtResource("7_u0ily")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y2527"]
+atlas = ExtResource("7_u0ily")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_opqfl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r4dmr")
+}],
+"loop": true,
+"name": &"a",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_soywl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y2527")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tokhs"]
 size = Vector2(174.609, 58.929)
@@ -31,6 +67,11 @@ size = Vector2(69.04, 88.544)
 
 [node name="Mundo" type="Node2D"]
 script = ExtResource("1_foaqx")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_r4dmr")
+volume_db = -26.528
+autoplay = true
 
 [node name="MainMenu" type="Sprite2D" parent="."]
 position = Vector2(587, 490)
@@ -89,16 +130,17 @@ position = Vector2(426, 86)
 rotation = -0.44875
 scale = Vector2(0.195481, 0.195481)
 
-[node name="Sprite2D" type="Sprite2D" parent="Boton"]
-modulate = Color(0, 1, 0.482353, 1)
-position = Vector2(22.5829, -23.594)
-scale = Vector2(1.35286, 1.36866)
-texture = ExtResource("5_07qq2")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boton"]
 position = Vector2(21.6276, -86.4337)
 scale = Vector2(1.00332, 1.00168)
 shape = SubResource("RectangleShape2D_gv8d2")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Boton"]
+position = Vector2(30.3851, 43.0196)
+rotation = 0.0783263
+scale = Vector2(11.0384, 11.0384)
+sprite_frames = SubResource("SpriteFrames_opqfl")
+animation = &"a"
 
 [node name="Saltador" type="StaticBody2D" parent="."]
 position = Vector2(498, 448)
@@ -135,6 +177,18 @@ rotation = -0.0216575
 scale = Vector2(0.999999, 0.999999)
 shape = SubResource("RectangleShape2D_0dyk3")
 
+[node name="Coleccionable" parent="." instance=ExtResource("10_yru0f")]
+position = Vector2(384, 234)
+scale = Vector2(1.87999, 1.87999)
+
+[node name="Coleccionable2" parent="." instance=ExtResource("10_yru0f")]
+position = Vector2(466, -38)
+scale = Vector2(1.88, 1.88)
+
+[node name="Coleccionable3" parent="." instance=ExtResource("10_yru0f")]
+position = Vector2(498, 587)
+scale = Vector2(2, 2)
+
 [node name="Cueva2" type="Node2D" parent="."]
 position = Vector2(684, -50)
 rotation = 1.5708
@@ -161,26 +215,14 @@ scale = Vector2(84.6597, 85.2868)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cueva2/Cueva"]
 shape = SubResource("CircleShape2D_m7mtk")
 
-[node name="Coleccionable" parent="." instance=ExtResource("10_yru0f")]
-position = Vector2(384, 234)
-scale = Vector2(1.87999, 1.87999)
-
-[node name="Coleccionable2" parent="." instance=ExtResource("10_yru0f")]
-position = Vector2(466, -38)
-scale = Vector2(1.88, 1.88)
-
-[node name="Coleccionable3" parent="." instance=ExtResource("10_yru0f")]
-position = Vector2(498, 587)
-scale = Vector2(2, 2)
-
 [connection signal="body_entered" from="Boton" to="." method="_on_boton_body_entered"]
 [connection signal="body_exited" from="Boton" to="." method="_on_boton_body_exited"]
 [connection signal="body_entered" from="Saltador/Area_Saltador" to="." method="_on_area_saltador_body_entered"]
 [connection signal="body_exited" from="Saltador/Area_Saltador" to="." method="_on_area_saltador_body_exited"]
 [connection signal="timeout" from="Nave/Timer" to="Nave" method="_on_timer_timeout"]
 [connection signal="body_entered" from="Nave/Area_Nave" to="." method="_on_area_nave_body_entered"]
-[connection signal="body_entered" from="Cueva2/Cueva" to="." method="_on_cueva_body_entered"]
-[connection signal="body_exited" from="Cueva2/Cueva" to="." method="_on_cueva_body_exited"]
 [connection signal="body_entered" from="Coleccionable" to="." method="_on_coleccionable_body_entered"]
 [connection signal="body_entered" from="Coleccionable2" to="." method="_on_coleccionable_2_body_entered"]
 [connection signal="body_entered" from="Coleccionable3" to="." method="_on_coleccionable_3_body_entered"]
+[connection signal="body_entered" from="Cueva2/Cueva" to="." method="_on_cueva_body_entered"]
+[connection signal="body_exited" from="Cueva2/Cueva" to="." method="_on_cueva_body_exited"]

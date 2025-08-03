@@ -26,3 +26,14 @@ func _on_menu_principal_pressed() -> void:
 
 func _on_salir_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_controles_pressed() -> void:
+	var escena_controles = preload("res://controles.tscn").instantiate()
+	get_tree().current_scene.add_child(escena_controles)
+	escena_controles.menu_pausa = self
+	$".".visible = false
+	
+func mostrar_menu():
+	$".".visible = true
+	get_tree().paused = true

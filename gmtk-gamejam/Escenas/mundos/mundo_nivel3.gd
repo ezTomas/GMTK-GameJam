@@ -1,6 +1,7 @@
 extends Node2D
 
-@onready var muro_principal: StaticBody2D = $MuroPrincipal
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+
 
 var salto_pontenciado:bool = false
 var jugador_dentro: bool = false
@@ -14,6 +15,9 @@ var zoomactive=false
 var cameraDefaultPosition
 var cameraDefaultRotation
 var cameraDefaultZoom
+
+func _ready() -> void:
+	audio_stream_player.play()
 
 func _process(delta: float) -> void:
 	if jugador_dentro == true and Input.is_action_pressed("Presionar"):
@@ -62,10 +66,12 @@ func _process(delta: float) -> void:
 
 func _on_boton_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
+		$Boton/AnimatedSprite2D2.play("default")
 		jugador_dentro = true
 
 func _on_boton_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player"):
+		$Boton/AnimatedSprite2D2.play("a")
 		jugador_dentro = false
 
 func _on_area_saltador_body_entered(body: Node2D) -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://8oqcf00vgmbc"]
+[gd_scene load_steps=44 format=3 uid="uid://8oqcf00vgmbc"]
 
 [ext_resource type="Script" uid="uid://d3ce3mqg3b6o7" path="res://Escenas/Objetos/mundo_4.gd" id="1_3qjgw"]
 [ext_resource type="PackedScene" uid="uid://ddb2htlgb567v" path="res://Escenas/Player.tscn" id="1_t17w4"]
@@ -7,11 +7,12 @@
 [ext_resource type="Script" uid="uid://b7t0cou5gpx2t" path="res://Escenas/satelite.gd" id="3_mc8o3"]
 [ext_resource type="Texture2D" uid="uid://by7uowy08pe02" path="res://Assets/Bloque.png" id="4_yesek"]
 [ext_resource type="Texture2D" uid="uid://ctoix77srm6vc" path="res://Assets/loop_blocks_launcher.png" id="5_aiedb"]
-[ext_resource type="Texture2D" uid="uid://bbj78g3a45iji" path="res://Assets/icon.svg" id="6_3qjgw"]
 [ext_resource type="Texture2D" uid="uid://70eu82r2j72y" path="res://Assets/Nave.png" id="8_jkmob"]
+[ext_resource type="Texture2D" uid="uid://c5nphgrv24j7u" path="res://Assets/Planeta/loop-boton.png" id="8_k1iin"]
 [ext_resource type="Texture2D" uid="uid://pbmghxnmsj3m" path="res://Assets/Planeta/planetLab.png" id="8_yxanr"]
 [ext_resource type="Script" uid="uid://d2icna18vpmon" path="res://Escenas/nave/nave_4.gd" id="10_w4twl"]
 [ext_resource type="PackedScene" uid="uid://v4r7s6gubluy" path="res://Escenas/Objetos/coleccionable.tscn" id="11_gvtuk"]
+[ext_resource type="AudioStream" uid="uid://bgl5mfbrl8uxf" path="res://Audio/level 4 master.wav" id="13_gxg6p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rk0hi"]
 size = Vector2(32, 32)
@@ -75,6 +76,40 @@ size = Vector2(122, 124)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4shwg"]
 size = Vector2(170.026, 326.326)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxg6p"]
+atlas = ExtResource("8_k1iin")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rfta2"]
+atlas = ExtResource("8_k1iin")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x6e3s"]
+atlas = ExtResource("8_k1iin")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5axbk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gxg6p")
+}],
+"loop": true,
+"name": &"a",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rfta2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x6e3s")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_plavx"]
 size = Vector2(174.609, 58.929)
 
@@ -133,6 +168,40 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ap5y6"]
 size = Vector2(170.026, 326.326)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_drwoi"]
+atlas = ExtResource("8_k1iin")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gumpp"]
+atlas = ExtResource("8_k1iin")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fbx7f"]
+atlas = ExtResource("8_k1iin")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4uyvw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_drwoi")
+}],
+"loop": true,
+"name": &"a",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gumpp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fbx7f")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_43byy"]
 size = Vector2(69.04, 88.544)
@@ -267,16 +336,16 @@ position = Vector2(964, 583)
 rotation = 2.19901
 scale = Vector2(0.195481, 0.195481)
 
-[node name="Sprite2D" type="Sprite2D" parent="Boton Verde"]
-modulate = Color(0, 1, 0.482353, 1)
-position = Vector2(22.5829, -23.594)
-scale = Vector2(1.35286, 1.36866)
-texture = ExtResource("6_3qjgw")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boton Verde"]
 position = Vector2(21.6276, -86.4337)
 scale = Vector2(1.00332, 1.00168)
 shape = SubResource("RectangleShape2D_4shwg")
+
+[node name="Verde" type="AnimatedSprite2D" parent="Boton Verde"]
+position = Vector2(34.9853, -12.7672)
+rotation = -0.0604633
+scale = Vector2(10.596, 11.9786)
+sprite_frames = SubResource("SpriteFrames_5axbk")
 
 [node name="Saltador Rosa" type="StaticBody2D" parent="."]
 position = Vector2(214, 343)
@@ -305,16 +374,16 @@ position = Vector2(-117, -125)
 rotation = -0.984116
 scale = Vector2(0.195481, 0.195481)
 
-[node name="Sprite2D" type="Sprite2D" parent="Boton rosa"]
-modulate = Color(0, 1, 0.482353, 1)
-position = Vector2(22.5829, -23.594)
-scale = Vector2(1.35286, 1.36866)
-texture = ExtResource("6_3qjgw")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boton rosa"]
 position = Vector2(21.6276, -86.4337)
 scale = Vector2(1.00332, 1.00168)
 shape = SubResource("RectangleShape2D_ap5y6")
+
+[node name="Rosa" type="AnimatedSprite2D" parent="Boton rosa"]
+position = Vector2(9.92415, 5.68836)
+scale = Vector2(5.6552, 7.64196)
+sprite_frames = SubResource("SpriteFrames_4uyvw")
+animation = &"a"
 
 [node name="Planet" parent="." instance=ExtResource("2_mc8o3")]
 position = Vector2(519, 337)
@@ -352,6 +421,11 @@ scale = Vector2(2.04, 2.04)
 [node name="Coleccionable3" parent="." instance=ExtResource("11_gvtuk")]
 position = Vector2(757, 42)
 scale = Vector2(2, 2)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_gxg6p")
+volume_db = -27.786
+autoplay = true
 
 [connection signal="timeout" from="Satelite/Timer" to="Satelite" method="_on_timer_timeout"]
 [connection signal="timeout" from="Satelite2/Timer" to="Satelite2" method="_on_timer_timeout"]

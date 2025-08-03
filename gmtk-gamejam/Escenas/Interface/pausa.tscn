@@ -71,5 +71,6 @@ icon = ExtResource("4_s4flh")
 flat = true
 
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/Reanudar" to="." method="_on_reanudar_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/Controles" to="." method="_on_controles_pressed"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/Menu Principal" to="." method="_on_menu_principal_pressed"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/Salir" to="." method="_on_salir_pressed"]

@@ -19,6 +19,11 @@ config/icon="res://Assets/icon.svg"
 
 Global="*res://globales/Global.gd"
 
+[display]
+
+window/size/mode=2
+window/stretch/mode="viewport"
+
 [global_group]
 
 Player=""

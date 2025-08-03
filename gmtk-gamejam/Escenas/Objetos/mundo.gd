@@ -65,10 +65,13 @@ func _on_boton_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		jugador_dentro = true
 		boton_activado = true
+		$Boton/AnimatedSprite2D2.play("default")
+
 
 func _on_boton_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		jugador_dentro = false
+		$Boton/AnimatedSprite2D2.play("a")
 
 func _on_area_saltador_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player") and boton_activado == true:

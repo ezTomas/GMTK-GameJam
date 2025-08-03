@@ -1,12 +1,14 @@
-[gd_scene load_steps=15 format=3 uid="uid://bqfaxhl8nwo1p"]
+[gd_scene load_steps=30 format=3 uid="uid://bqfaxhl8nwo1p"]
 
 [ext_resource type="PackedScene" uid="uid://ddb2htlgb567v" path="res://Escenas/Player.tscn" id="1_lgngo"]
 [ext_resource type="Script" uid="uid://chp6mvv8u85tr" path="res://Escenas/Objetos/mundo.gd" id="1_otwa2"]
 [ext_resource type="PackedScene" uid="uid://1swxy5i7vs57" path="res://Escenas/Planet.tscn" id="2_fw4w5"]
+[ext_resource type="AudioStream" uid="uid://bkrg65hx0hdpf" path="res://Audio/level 1 y 2.wav" id="2_q4xwk"]
 [ext_resource type="Texture2D" uid="uid://b7e6p6y0bv7nq" path="res://Assets/Menu/Main Menu.png" id="2_yw3cr"]
-[ext_resource type="Texture2D" uid="uid://bbj78g3a45iji" path="res://Assets/icon.svg" id="3_fw4w5"]
 [ext_resource type="Texture2D" uid="uid://dgvukewut6afw" path="res://Assets/Muro.png" id="4_aou4a"]
 [ext_resource type="Texture2D" uid="uid://70eu82r2j72y" path="res://Assets/Nave.png" id="6_2hh7m"]
+[ext_resource type="Texture2D" uid="uid://c5nphgrv24j7u" path="res://Assets/Planeta/loop-boton.png" id="6_08jqv"]
+[ext_resource type="Texture2D" uid="uid://ctoix77srm6vc" path="res://Assets/loop_blocks_launcher.png" id="7_08jqv"]
 [ext_resource type="Script" uid="uid://dp7q5drt1fdb1" path="res://Escenas/nave/sprite_2d.gd" id="7_t8jxu"]
 [ext_resource type="PackedScene" uid="uid://v4r7s6gubluy" path="res://Escenas/Objetos/coleccionable.tscn" id="8_tokhs"]
 
@@ -16,17 +18,107 @@ size = Vector2(222.347, 242.697)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gv8d2"]
 size = Vector2(170.026, 326.326)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_514pm"]
+atlas = ExtResource("6_08jqv")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1i8ix"]
+atlas = ExtResource("6_08jqv")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fpj1o"]
+atlas = ExtResource("6_08jqv")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1nmim"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_514pm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1i8ix")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fpj1o")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tokhs"]
 size = Vector2(174.609, 58.929)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_awk8m"]
 size = Vector2(122, 124)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_q4xwk"]
+atlas = ExtResource("7_08jqv")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1gg22"]
+atlas = ExtResource("7_08jqv")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vaqdx"]
+atlas = ExtResource("7_08jqv")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fcs4w"]
+atlas = ExtResource("7_08jqv")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_strk6"]
+atlas = ExtResource("7_08jqv")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cfr8n"]
+atlas = ExtResource("7_08jqv")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_514pm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q4xwk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1gg22")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vaqdx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fcs4w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_strk6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cfr8n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0dyk3"]
 size = Vector2(69.04, 88.544)
 
+[sub_resource type="SystemFont" id="SystemFont_q4xwk"]
+fallbacks = Array[Font]([null])
+font_weight = 999
+
+[sub_resource type="LabelSettings" id="LabelSettings_q4xwk"]
+
 [node name="Mundo" type="Node2D"]
 script = ExtResource("1_otwa2")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_q4xwk")
+volume_db = -26.993
+autoplay = true
 
 [node name="MainMenu" type="Sprite2D" parent="."]
 position = Vector2(591, 472)
@@ -39,10 +131,6 @@ rotation = 0.83505
 scale = Vector2(0.865363, 0.865363)
 offset = Vector2(0.24, 0)
 zoom = Vector2(0.545, 0.545)
-
-[node name="Planet" parent="." instance=ExtResource("2_fw4w5")]
-position = Vector2(601, 475)
-scale = Vector2(2.66038, 2.66038)
 
 [node name="Player" parent="." node_paths=PackedStringArray("planet") instance=ExtResource("1_lgngo")]
 position = Vector2(732, 107)
@@ -68,16 +156,15 @@ position = Vector2(428, 171)
 rotation = -0.44875
 scale = Vector2(0.195481, 0.195481)
 
-[node name="Sprite2D" type="Sprite2D" parent="Boton"]
-modulate = Color(0, 1, 0.482353, 1)
-position = Vector2(22.5829, -23.594)
-scale = Vector2(1.35286, 1.36866)
-texture = ExtResource("3_fw4w5")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boton"]
 position = Vector2(21.6276, -86.4337)
 scale = Vector2(1.00332, 1.00168)
 shape = SubResource("RectangleShape2D_gv8d2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Boton"]
+position = Vector2(31.4116, -41.6522)
+scale = Vector2(14.3017, 15.2304)
+sprite_frames = SubResource("SpriteFrames_1nmim")
 
 [node name="Saltador" type="StaticBody2D" parent="."]
 position = Vector2(948, 473)
@@ -89,11 +176,15 @@ scale = Vector2(0.207093, 0.561468)
 position = Vector2(77.3042, 0.892883)
 shape = SubResource("RectangleShape2D_tokhs")
 
-[node name="Sprite2D" type="Sprite2D" parent="Saltador"]
-texture = ExtResource("3_fw4w5")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Saltador"]
 shape = SubResource("RectangleShape2D_awk8m")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Saltador"]
+modulate = Color(0, 1, 0, 1)
+position = Vector2(130.376, 1.78105)
+rotation = 1.56092
+scale = Vector2(5.11948, 10.1185)
+sprite_frames = SubResource("SpriteFrames_514pm")
 
 [node name="Nave" type="Sprite2D" parent="."]
 position = Vector2(172, 220)
@@ -112,6 +203,10 @@ rotation = -0.0216575
 scale = Vector2(0.999999, 0.999999)
 shape = SubResource("RectangleShape2D_0dyk3")
 
+[node name="Planet" parent="." instance=ExtResource("2_fw4w5")]
+position = Vector2(601, 475)
+scale = Vector2(2.66038, 2.66038)
+
 [node name="Coleccionable" parent="." instance=ExtResource("8_tokhs")]
 position = Vector2(853, 222)
 scale = Vector2(1.7503, 1.7503)
@@ -123,6 +218,19 @@ scale = Vector2(1.7503, 1.7503)
 [node name="Coleccionable3" parent="." instance=ExtResource("8_tokhs")]
 position = Vector2(249, 361)
 scale = Vector2(1.7503, 1.7503)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 844.0
+offset_top = -67.0
+offset_right = 1312.0
+offset_bottom = -18.0
+scale = Vector2(1.76104, 2.77762)
+theme_override_colors/font_color = Color(0.756863, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_q4xwk")
+text = "I need to reach my ship in the orbit. 
+Help me find a launcher."
+label_settings = SubResource("LabelSettings_q4xwk")
+max_lines_visible = 2
 
 [connection signal="body_entered" from="Boton" to="." method="_on_boton_body_entered"]
 [connection signal="body_exited" from="Boton" to="." method="_on_boton_body_exited"]

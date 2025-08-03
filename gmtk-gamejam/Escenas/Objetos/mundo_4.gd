@@ -1,5 +1,7 @@
 extends Node2D
 
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+
 var salto_pontenciado:bool = false
 var jugador_dentro: bool = false
 var boton_verde_activado: bool = false
@@ -15,6 +17,9 @@ var zoomactive=false
 var cameraDefaultPosition
 var cameraDefaultRotation
 var cameraDefaultZoom
+
+func _ready() -> void:
+	audio_stream_player.play()
 
 func _process(delta: float) -> void:
 	if jugador_dentro_verde == true and Input.is_action_pressed("Presionar"):
@@ -86,20 +91,24 @@ func _on_area_saltador_verde_body_exited(body: Node2D) -> void:
 func _on_boton_verde_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		jugador_dentro_verde = true
+		$"Boton Verde/Verde".play("default")
 
 func _on_boton_verde_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		jugador_dentro_verde = false
+		$"Boton Verde/Verde".play("a")
 #----------------------------------------------
 #------------ Codigo boton y saltador rosa----------------------------
 
 func _on_boton_rosa_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player") and boton_verde_activado == true:
 		jugador_dentro_rosa = true
+		$"Boton rosa/Rosa".play("default")
 
 func _on_boton_rosa_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		jugador_dentro_rosa = false
+		$"Boton rosa/Rosa".play("a")
 
 func _on_area_saltador_rosa_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player") and boton_rosa_activado == true:

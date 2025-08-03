@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://bf845x1kin08g"]
+
+[ext_resource type="Script" uid="uid://bu130kavsbuso" path="res://control.gd" id="1_rstt6"]
+[ext_resource type="Texture2D" uid="uid://c6ix7k3hq3h5b" path="res://Assets/Menu/pause/Overlay.png" id="2_q780r"]
+[ext_resource type="Texture2D" uid="uid://bld4xivi1c0qc" path="res://Assets/botones niveles/button_Back.png" id="3_g5u85"]
+[ext_resource type="Texture2D" uid="uid://bnighrhssnsyc" path="res://Assets/botones niveles/Pause_Controls.png" id="4_2gckq"]
+
+[node name="Control" type="CanvasLayer"]
+script = ExtResource("1_rstt6")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_q780r")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_2gckq")
+
+[node name="Button" type="Button" parent="."]
+process_mode = 3
+offset_right = 183.0
+offset_bottom = 138.0
+icon = ExtResource("3_g5u85")
+flat = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
