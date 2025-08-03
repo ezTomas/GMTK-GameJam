@@ -1,11 +1,19 @@
-[gd_scene load_steps=11 format=3 uid="uid://be2mohd7bv203"]
+[gd_scene load_steps=18 format=3 uid="uid://be2mohd7bv203"]
 
 [ext_resource type="Script" uid="uid://7ms3rirnmsq4" path="res://Escenas/mundos/mundo_nivel3.gd" id="1_foaqx"]
 [ext_resource type="PackedScene" uid="uid://rf40vs04cxye" path="res://globales/Planet_nivel3.tscn" id="2_foaqx"]
+[ext_resource type="Texture2D" uid="uid://b7e6p6y0bv7nq" path="res://Assets/Menu/Main Menu.png" id="2_m7mtk"]
 [ext_resource type="PackedScene" uid="uid://ddb2htlgb567v" path="res://Escenas/Player.tscn" id="3_eycmq"]
+[ext_resource type="Texture2D" uid="uid://qnfjajm58rdh" path="res://Assets/Planeta/light.png" id="5_2rjdx"]
 [ext_resource type="Texture2D" uid="uid://bbj78g3a45iji" path="res://Assets/icon.svg" id="5_07qq2"]
 [ext_resource type="Texture2D" uid="uid://70eu82r2j72y" path="res://Assets/Nave.png" id="6_m60lv"]
-[ext_resource type="Script" uid="uid://db12jdrpho2yd" path="res://Escenas/nave2.gd" id="7_foaqx"]
+[ext_resource type="Script" uid="uid://db12jdrpho2yd" path="res://Escenas/nave/nave2.gd" id="7_foaqx"]
+[ext_resource type="Texture2D" uid="uid://by7uowy08pe02" path="res://Assets/Bloque.png" id="7_t757d"]
+[ext_resource type="Texture2D" uid="uid://dcc14pejdxubu" path="res://Assets/Planeta/planet512_rojoA.png" id="9_yru0f"]
+[ext_resource type="PackedScene" uid="uid://v4r7s6gubluy" path="res://Escenas/Objetos/coleccionable.tscn" id="10_yru0f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jwx8c"]
+size = Vector2(32.2751, 31.9797)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gv8d2"]
 size = Vector2(170.026, 326.326)
@@ -19,8 +27,15 @@ size = Vector2(122, 124)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0dyk3"]
 size = Vector2(69.04, 88.544)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_m7mtk"]
+
 [node name="Mundo" type="Node2D"]
 script = ExtResource("1_foaqx")
+
+[node name="MainMenu" type="Sprite2D" parent="."]
+position = Vector2(587, 490)
+scale = Vector2(2.8, 2.84)
+texture = ExtResource("2_m7mtk")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(593, 485)
@@ -31,14 +46,43 @@ zoom = Vector2(0.365, 0.365)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
+[node name="Muro2" type="StaticBody2D" parent="."]
+position = Vector2(525, -107)
+rotation = -0.0290436
+scale = Vector2(1, 5.77379)
+
+[node name="Sprite2D" type="Sprite2D" parent="Muro2"]
+texture = ExtResource("7_t757d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Muro2"]
+position = Vector2(-0.265717, 0.0359163)
+shape = SubResource("RectangleShape2D_jwx8c")
+
+[node name="Muro1" type="StaticBody2D" parent="."]
+position = Vector2(15, 329)
+rotation = -1.24871
+scale = Vector2(1, 5.77379)
+
+[node name="Sprite2D" type="Sprite2D" parent="Muro1"]
+texture = ExtResource("7_t757d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Muro1"]
+position = Vector2(-0.265717, 0.0359163)
+shape = SubResource("RectangleShape2D_jwx8c")
+
 [node name="Planet_nivel3" parent="." instance=ExtResource("2_foaqx")]
 position = Vector2(593, 486)
 
 [node name="Player" parent="." node_paths=PackedStringArray("planet") instance=ExtResource("3_eycmq")]
-position = Vector2(732, -129)
+position = Vector2(684, -50)
 scale = Vector2(0.574063, 0.574063)
 planet = NodePath("../Planet_nivel3")
 JUMP_FORCE = -1250
+
+[node name="PointLight2D" type="PointLight2D" parent="Player"]
+enabled = false
+texture = ExtResource("5_2rjdx")
+texture_scale = 0.5
 
 [node name="Boton" type="Area2D" parent="."]
 position = Vector2(426, 86)
@@ -91,9 +135,52 @@ rotation = -0.0216575
 scale = Vector2(0.999999, 0.999999)
 shape = SubResource("RectangleShape2D_0dyk3")
 
+[node name="Cueva2" type="Node2D" parent="."]
+position = Vector2(684, -50)
+rotation = 1.5708
+scale = Vector2(0.574063, 0.574063)
+
+[node name="PlanetaFuera" type="Sprite2D" parent="Cueva2"]
+position = Vector2(930.212, 158.516)
+rotation = -1.5708
+scale = Vector2(3.48394, 3.48394)
+texture = ExtResource("9_yru0f")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="Cueva2"]
+visible = false
+position = Vector2(930.212, 158.516)
+rotation = -1.5708
+scale = Vector2(3.48394, 3.48394)
+color = Color(0, 0, 0, 1)
+
+[node name="Cueva" type="Area2D" parent="Cueva2"]
+position = Vector2(924.986, 160.258)
+rotation = -1.5708
+scale = Vector2(84.6597, 85.2868)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cueva2/Cueva"]
+shape = SubResource("CircleShape2D_m7mtk")
+
+[node name="Coleccionable" parent="." instance=ExtResource("10_yru0f")]
+position = Vector2(384, 234)
+scale = Vector2(1.87999, 1.87999)
+
+[node name="Coleccionable2" parent="." instance=ExtResource("10_yru0f")]
+position = Vector2(466, -38)
+scale = Vector2(1.88, 1.88)
+
+[node name="Coleccionable3" parent="." instance=ExtResource("10_yru0f")]
+position = Vector2(498, 587)
+scale = Vector2(2, 2)
+
 [connection signal="body_entered" from="Boton" to="." method="_on_boton_body_entered"]
 [connection signal="body_exited" from="Boton" to="." method="_on_boton_body_exited"]
 [connection signal="body_entered" from="Saltador/Area_Saltador" to="." method="_on_area_saltador_body_entered"]
 [connection signal="body_exited" from="Saltador/Area_Saltador" to="." method="_on_area_saltador_body_exited"]
 [connection signal="timeout" from="Nave/Timer" to="Nave" method="_on_timer_timeout"]
 [connection signal="body_entered" from="Nave/Area_Nave" to="." method="_on_area_nave_body_entered"]
+[connection signal="body_entered" from="Cueva2/Cueva" to="." method="_on_cueva_body_entered"]
+[connection signal="body_exited" from="Cueva2/Cueva" to="." method="_on_cueva_body_exited"]
+[connection signal="body_entered" from="Coleccionable" to="." method="_on_coleccionable_body_entered"]
+[connection signal="body_entered" from="Coleccionable2" to="." method="_on_coleccionable_2_body_entered"]
+[connection signal="body_entered" from="Coleccionable3" to="." method="_on_coleccionable_3_body_entered"]

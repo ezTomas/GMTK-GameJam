@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://d0bnl0yeps0rw"]
 
 [ext_resource type="Texture2D" uid="uid://70eu82r2j72y" path="res://Assets/Nave.png" id="1_s4aoe"]
-[ext_resource type="Script" uid="uid://dp7q5drt1fdb1" path="res://Escenas/sprite_2d.gd" id="2_7207i"]
+[ext_resource type="Script" uid="uid://dp7q5drt1fdb1" path="res://Escenas/nave/sprite_2d.gd" id="2_7207i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c0ds3"]
 size = Vector2(69.04, 88.544)

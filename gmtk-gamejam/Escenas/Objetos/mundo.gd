@@ -7,11 +7,60 @@ var jugador_dentro: bool = false
 var boton_activado: bool = false
 var muro_destruido: bool = false
 
+@onready var player: RigidBody2D = $Player
+@onready var camera: Camera2D = $Camera2D
+
+var zoomactive=false
+var cameraDefaultPosition
+var cameraDefaultRotation
+var cameraDefaultZoom
+
 func _process(delta: float) -> void:
 	if jugador_dentro == true and Input.is_action_pressed("Presionar") and muro_destruido == false:
 		muro_principal.queue_free()
 		muro_destruido = true
-
+		
+	if Input.is_action_just_pressed("zoom"):
+		if !zoomactive:
+			
+			var tween = get_tree().create_tween()
+			##self.add_child(camera)
+			cameraDefaultPosition=camera.get_position()
+			cameraDefaultRotation=camera.rotation
+			cameraDefaultZoom=camera.zoom
+			camera.ignore_rotation=false
+			camera.set_position(player.get_position())
+			
+			#tween.tween_property(camera, "rotation", self.rotation, 1)
+			camera.rotation=player.rotation
+			tween.tween_property(camera, "rotation", deg_to_rad(-90), .1)
+			#camera.rotate(deg_to_rad(-90))
+			camera.reparent(player)
+			
+			camera.make_current()
+			tween.tween_property(camera, "zoom", Vector2(2,2), 1)
+			#camera.zoom+=Vector2(2,2)
+			zoomactive=true
+			#ok
+			
+			print("estaba desactivado")
+		else:
+			var tween = get_tree().create_tween()
+			##self.add_child(camera)
+			camera.reparent(get_tree().current_scene)
+			camera.set_position(cameraDefaultPosition)
+			
+			tween.tween_property(camera, "zoom", cameraDefaultZoom, .1)
+			#camera.zoom=cameraDefaultZoom
+			tween.tween_property(camera, "rotation", cameraDefaultRotation, 1)
+			#camera.rotation=cameraDefaultRotation
+			
+			
+			
+			camera.ignore_rotation=true
+			zoomactive=false
+			print("estaba activado")
+			
 func _on_boton_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		jugador_dentro = true

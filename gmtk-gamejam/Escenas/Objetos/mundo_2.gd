@@ -7,6 +7,14 @@ var jugador_dentro: bool = false
 var boton_verde_activado: bool = false
 var boton_rosa_activado: bool = false
 
+@onready var player: RigidBody2D = $Player
+@onready var camera: Camera2D = $Camera2D
+
+var zoomactive=false
+var cameraDefaultPosition
+var cameraDefaultRotation
+var cameraDefaultZoom
+
 var jugador_dentro_verde: bool = false
 var jugador_dentro_rosa: bool = false
 
@@ -16,7 +24,47 @@ func _process(delta: float) -> void:
 	
 	if jugador_dentro_rosa == true and Input.is_action_pressed("Presionar"):
 		boton_rosa_activado = true
-
+		
+	if Input.is_action_just_pressed("zoom"):
+		if !zoomactive:
+			
+			var tween = get_tree().create_tween()
+			##self.add_child(camera)
+			cameraDefaultPosition=camera.get_position()
+			cameraDefaultRotation=camera.rotation
+			cameraDefaultZoom=camera.zoom
+			camera.ignore_rotation=false
+			camera.set_position(player.get_position())
+			
+			#tween.tween_property(camera, "rotation", self.rotation, 1)
+			camera.rotation=player.rotation
+			tween.tween_property(camera, "rotation", deg_to_rad(-90), .1)
+			#camera.rotate(deg_to_rad(-90))
+			camera.reparent(player)
+			
+			camera.make_current()
+			tween.tween_property(camera, "zoom", Vector2(2,2), 1)
+			#camera.zoom+=Vector2(2,2)
+			zoomactive=true
+			#ok
+			
+			print("estaba desactivado")
+		else:
+			var tween = get_tree().create_tween()
+			##self.add_child(camera)
+			camera.reparent(get_tree().current_scene)
+			camera.set_position(cameraDefaultPosition)
+			
+			tween.tween_property(camera, "zoom", cameraDefaultZoom, .1)
+			#camera.zoom=cameraDefaultZoom
+			tween.tween_property(camera, "rotation", cameraDefaultRotation, 1)
+			#camera.rotation=cameraDefaultRotation
+			
+			
+			
+			camera.ignore_rotation=true
+			zoomactive=false
+			print("estaba activado")
 func _on_area_nave_2_body_entered(body: Node2D) -> void:
 	if boton_rosa_activado == true and body.is_in_group("Player"):
 		get_tree().change_scene_to_file("res://Escenas/Interface/menu_principal.tscn")
@@ -72,3 +120,19 @@ func _on_area_saltador_rosa_body_exited(body: Node2D) -> void:
 func _on_area_mortal_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		get_tree().reload_current_scene()
+		
+		
+func _on_coleccionable_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		Global.monedas_nivel_2 += 1
+		$Coleccionable.queue_free()
+
+func _on_coleccionable_2_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		Global.monedas_nivel_2 += 1
+		$Coleccionable2.queue_free()
+
+func _on_coleccionable_3_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		Global.monedas_nivel_2 += 1
+		$Coleccionable3.queue_free()

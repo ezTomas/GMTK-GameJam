@@ -1,15 +1,17 @@
-[gd_scene load_steps=61 format=3 uid="uid://cnvel28fkusua"]
+[gd_scene load_steps=63 format=3 uid="uid://cnvel28fkusua"]
 
 [ext_resource type="PackedScene" uid="uid://1swxy5i7vs57" path="res://Escenas/Planet.tscn" id="1_qd736"]
 [ext_resource type="Script" uid="uid://cc0o2hjjcfar0" path="res://Escenas/Objetos/mundo_2.gd" id="1_qpcdr"]
 [ext_resource type="PackedScene" uid="uid://ddb2htlgb567v" path="res://Escenas/Player.tscn" id="2_f10jn"]
+[ext_resource type="Texture2D" uid="uid://b7e6p6y0bv7nq" path="res://Assets/Menu/Main Menu.png" id="2_xe31r"]
 [ext_resource type="Texture2D" uid="uid://70eu82r2j72y" path="res://Assets/Nave.png" id="3_1mwim"]
-[ext_resource type="Script" uid="uid://db12jdrpho2yd" path="res://Escenas/nave2.gd" id="4_1mwim"]
+[ext_resource type="Script" uid="uid://cpbd3d2r7uw53" path="res://Escenas/nave/nave.gd" id="4_cqltt"]
 [ext_resource type="Texture2D" uid="uid://c63dwlfvu6bgr" path="res://Assets/Planeta/loop_planet.png" id="5_kqefx"]
 [ext_resource type="Texture2D" uid="uid://o8jahqtba4m1" path="res://Assets/Plataforma.png" id="6_7areq"]
 [ext_resource type="Texture2D" uid="uid://ctoix77srm6vc" path="res://Assets/loop_blocks_launcher.png" id="6_dyt4g"]
 [ext_resource type="Texture2D" uid="uid://bbj78g3a45iji" path="res://Assets/icon.svg" id="7_hton8"]
 [ext_resource type="Texture2D" uid="uid://bxoc1o4x6ueq4" path="res://Assets/Planeta/planet_rosa.png" id="9_axffn"]
+[ext_resource type="PackedScene" uid="uid://v4r7s6gubluy" path="res://Escenas/Objetos/coleccionable.tscn" id="11_qkjkc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7areq"]
 size = Vector2(69.04, 88.544)
@@ -187,6 +189,12 @@ size = Vector2(20, 34.6967)
 [node name="Mundo2" type="Node2D"]
 script = ExtResource("1_qpcdr")
 
+[node name="MainMenu" type="Sprite2D" parent="."]
+position = Vector2(620, 377)
+rotation = 3.14159
+scale = Vector2(3.18569, 3.18569)
+texture = ExtResource("2_xe31r")
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(531, 384)
 scale = Vector2(802.376, -3560.37)
@@ -204,7 +212,8 @@ position = Vector2(-328, -128)
 rotation = 3.73012
 scale = Vector2(2.56147, 2.56147)
 texture = ExtResource("3_1mwim")
-script = ExtResource("4_1mwim")
+script = ExtResource("4_cqltt")
+radius = 950.0
 
 [node name="Area_Nave_2" type="Area2D" parent="Nave2"]
 
@@ -777,6 +786,18 @@ scale = Vector2(3.07314, 3.07314)
 scale = Vector2(0.508438, 0.508438)
 texture = ExtResource("9_axffn")
 
+[node name="Coleccionable" parent="." instance=ExtResource("11_qkjkc")]
+position = Vector2(1058, 499)
+scale = Vector2(2.15625, 2.16284)
+
+[node name="Coleccionable2" parent="." instance=ExtResource("11_qkjkc")]
+position = Vector2(13, 195)
+scale = Vector2(1.8, 1.8)
+
+[node name="Coleccionable3" parent="." instance=ExtResource("11_qkjkc")]
+position = Vector2(925, -288)
+scale = Vector2(2.19746, 2.19746)
+
 [connection signal="body_entered" from="Nave2/Area_Nave_2" to="." method="_on_area_nave_2_body_entered"]
 [connection signal="body_entered" from="Saltador Rosa/Area_Saltador_rosa" to="." method="_on_area_saltador_rosa_body_entered"]
 [connection signal="body_exited" from="Saltador Rosa/Area_Saltador_rosa" to="." method="_on_area_saltador_rosa_body_exited"]
@@ -787,3 +808,6 @@ texture = ExtResource("9_axffn")
 [connection signal="body_entered" from="Boton Verde" to="." method="_on_boton_verde_body_entered"]
 [connection signal="body_exited" from="Boton Verde" to="." method="_on_boton_verde_body_exited"]
 [connection signal="body_entered" from="Zona mortal/Area Mortal" to="." method="_on_area_mortal_body_entered"]
+[connection signal="body_entered" from="Coleccionable" to="." method="_on_coleccionable_body_entered"]
+[connection signal="body_entered" from="Coleccionable2" to="." method="_on_coleccionable_2_body_entered"]
+[connection signal="body_entered" from="Coleccionable3" to="." method="_on_coleccionable_3_body_entered"]

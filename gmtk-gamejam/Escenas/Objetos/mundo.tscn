@@ -1,12 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://bqfaxhl8nwo1p"]
+[gd_scene load_steps=15 format=3 uid="uid://bqfaxhl8nwo1p"]
 
 [ext_resource type="PackedScene" uid="uid://ddb2htlgb567v" path="res://Escenas/Player.tscn" id="1_lgngo"]
 [ext_resource type="Script" uid="uid://chp6mvv8u85tr" path="res://Escenas/Objetos/mundo.gd" id="1_otwa2"]
 [ext_resource type="PackedScene" uid="uid://1swxy5i7vs57" path="res://Escenas/Planet.tscn" id="2_fw4w5"]
+[ext_resource type="Texture2D" uid="uid://b7e6p6y0bv7nq" path="res://Assets/Menu/Main Menu.png" id="2_yw3cr"]
 [ext_resource type="Texture2D" uid="uid://bbj78g3a45iji" path="res://Assets/icon.svg" id="3_fw4w5"]
 [ext_resource type="Texture2D" uid="uid://dgvukewut6afw" path="res://Assets/Muro.png" id="4_aou4a"]
 [ext_resource type="Texture2D" uid="uid://70eu82r2j72y" path="res://Assets/Nave.png" id="6_2hh7m"]
-[ext_resource type="Script" uid="uid://dp7q5drt1fdb1" path="res://Escenas/sprite_2d.gd" id="7_t8jxu"]
+[ext_resource type="Script" uid="uid://dp7q5drt1fdb1" path="res://Escenas/nave/sprite_2d.gd" id="7_t8jxu"]
 [ext_resource type="PackedScene" uid="uid://v4r7s6gubluy" path="res://Escenas/Objetos/coleccionable.tscn" id="8_tokhs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_otwa2"]
@@ -26,6 +27,11 @@ size = Vector2(69.04, 88.544)
 
 [node name="Mundo" type="Node2D"]
 script = ExtResource("1_otwa2")
+
+[node name="MainMenu" type="Sprite2D" parent="."]
+position = Vector2(591, 472)
+scale = Vector2(1.88861, 1.9775)
+texture = ExtResource("2_yw3cr")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(593, 485)
