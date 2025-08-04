@@ -18,10 +18,13 @@ var cameraDefaultZoom
 
 func _ready() -> void:
 	audio_stream_player.play()
+	$Boton/AnimatedSprite2D2.play("default")
 
 func _process(delta: float) -> void:
 	if jugador_dentro == true and Input.is_action_pressed("Presionar"):
 		boton_activado = true
+		$Saltador/AnimatedSprite2D.play("default")
+		$Boton/AnimatedSprite2D2.play("a")
 		
 	if Input.is_action_just_pressed("zoom"):
 		if !zoomactive:
@@ -66,12 +69,10 @@ func _process(delta: float) -> void:
 
 func _on_boton_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-		$Boton/AnimatedSprite2D2.play("default")
 		jugador_dentro = true
 
 func _on_boton_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-		$Boton/AnimatedSprite2D2.play("a")
 		jugador_dentro = false
 
 func _on_area_saltador_body_entered(body: Node2D) -> void:

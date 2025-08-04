@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bwege8qxc6m6u" path="res://Escenas/Interface/pausa.tscn" id="3_kne1u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e80uo"]
-size = Vector2(64, 39)
+size = Vector2(64, 36)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wi0c6"]
 atlas = ExtResource("2_kne1u")
@@ -73,7 +73,7 @@ linear_damp = 9.0
 script = ExtResource("1_kpjcp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2.04848e-06, -0.499989)
+position = Vector2(2.04848e-06, -1.99999)
 shape = SubResource("RectangleShape2D_e80uo")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
