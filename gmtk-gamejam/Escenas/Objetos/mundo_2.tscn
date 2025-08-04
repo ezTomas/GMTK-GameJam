@@ -741,8 +741,8 @@ rotation = -0.141973
 shape = SubResource("RectangleShape2D_iw32h")
 
 [node name="Plataforma9" type="StaticBody2D" parent="Plataformas/Plataformas altas"]
-position = Vector2(991, 811)
-rotation = -2.32829
+position = Vector2(986.985, 771.742)
+rotation = -2.10702
 scale = Vector2(1, 2.24272)
 
 [node name="Sprite2D" type="Sprite2D" parent="Plataformas/Plataformas altas/Plataforma9"]
@@ -755,8 +755,8 @@ rotation = -0.141973
 shape = SubResource("RectangleShape2D_psaxg")
 
 [node name="Plataforma10" type="StaticBody2D" parent="Plataformas/Plataformas altas"]
-position = Vector2(800, 845)
-rotation = -1.99812
+position = Vector2(813.06, 830.964)
+rotation = -1.81434
 scale = Vector2(1, 2.19006)
 
 [node name="Sprite2D" type="Sprite2D" parent="Plataformas/Plataformas altas/Plataforma10"]

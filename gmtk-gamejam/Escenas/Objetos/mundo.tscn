@@ -35,7 +35,12 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_514pm")
+}],
+"loop": true,
+"name": &"a",
+"speed": 5.0
 }, {
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1i8ix")
 }, {
@@ -165,6 +170,7 @@ shape = SubResource("RectangleShape2D_gv8d2")
 position = Vector2(31.4116, -41.6522)
 scale = Vector2(14.3017, 15.2304)
 sprite_frames = SubResource("SpriteFrames_1nmim")
+animation = &"a"
 
 [node name="Saltador" type="StaticBody2D" parent="."]
 position = Vector2(948, 473)

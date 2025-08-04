@@ -71,6 +71,7 @@ func _process(delta: float) -> void:
 func _on_area_nave_2_body_entered(body: Node2D) -> void:
 	if boton_rosa_activado == true and body.is_in_group("Player"):
 		get_tree().change_scene_to_file("res://Escenas/Interface/menu_principal.tscn")
+		Global.niveles += 1
 
 #-----------Codigo dfe boton y saltador verde ------------------
 func _on_area_saltador_verde_body_entered(body: Node2D) -> void:
