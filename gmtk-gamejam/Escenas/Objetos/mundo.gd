@@ -16,7 +16,12 @@ var cameraDefaultRotation
 var cameraDefaultZoom
 
 func _ready() -> void:
-	$Boton/AnimatedSprite2D.play("default")
+	if Global.monedas_nivel_1 == 3:
+		$Coleccionable.visible = false
+		$Coleccionable2.visible = false
+		$Coleccionable3.visible = false
+
+
 
 func _process(delta: float) -> void:
 	if jugador_dentro == true and Input.is_action_pressed("Presionar") and muro_destruido == false:
