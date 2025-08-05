@@ -315,3 +315,4 @@ expand_mode = 2
 [connection signal="pressed" from="TextureRect/VBoxContainer/HBoxContainer/TextureRect/Nivel1" to="." method="_on_nivel_1_pressed"]
 [connection signal="pressed" from="TextureRect/VBoxContainer/HBoxContainer/TextureRect2/Nivel2" to="." method="_on_nivel_2_pressed"]
 [connection signal="pressed" from="TextureRect/VBoxContainer/HBoxContainer2/TextureRect3/Nivel3" to="." method="_on_nivel_3_pressed"]
+[connection signal="pressed" from="TextureRect/VBoxContainer/HBoxContainer2/TextureRect2/Nivel4" to="." method="_on_nivel_4_pressed"]
