@@ -18,15 +18,20 @@ var cameraDefaultRotation
 var cameraDefaultZoom
 
 func _ready() -> void:
+
 	if Global.monedas_nivel_1 == 3:
 		$Coleccionable.visible = false
 		$Coleccionable2.visible = false
 		$Coleccionable3.visible = false
 
+
 func _process(delta: float) -> void:
 	if jugador_dentro == true and Input.is_action_pressed("Presionar") and muro_destruido == false:
 		muro_principal.queue_free()
 		muro_destruido = true
+		$Saltador/AnimatedSprite2D.play("default")
+		$Boton/AnimatedSprite2D.play("a")
+
 		
 	if Input.is_action_just_pressed("zoom"):
 		if !zoomactive:
@@ -73,26 +78,25 @@ func _on_boton_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		jugador_dentro = true
 		boton_activado = true
-		$Boton/AnimatedSprite2D.play("default")
+		
 
 
 func _on_boton_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		jugador_dentro = false
-		$Boton/AnimatedSprite2D.play("a")
-
+		
 func _on_area_saltador_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player") and boton_activado == true:
 		var player = get_tree().get_nodes_in_group("Player")
 		player[0].JUMP_FORCE -= 2500
 		salto_pontenciado = true
-		$Saltador/AnimatedSprite2D.play("default")
+		
 
 func _on_area_saltador_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player") and salto_pontenciado == true:
 		var player = get_tree().get_nodes_in_group("Player")
 		player[0].JUMP_FORCE += 2500
-		$Saltador/AnimatedSprite2D.stop()
+		
 		salto_pontenciado = false
 
 func _on_area_nave_body_entered(body: Node2D) -> void:

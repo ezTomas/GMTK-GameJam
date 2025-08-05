@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=3 uid="uid://cnvel28fkusua"]
+[gd_scene load_steps=83 format=3 uid="uid://cnvel28fkusua"]
 
 [ext_resource type="PackedScene" uid="uid://1swxy5i7vs57" path="res://Escenas/Planet.tscn" id="1_qd736"]
 [ext_resource type="Script" uid="uid://cc0o2hjjcfar0" path="res://Escenas/Objetos/mundo_2.gd" id="1_qpcdr"]
@@ -21,7 +21,7 @@ size = Vector2(69.04, 88.544)
 size = Vector2(174.609, 58.929)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_daqp7"]
-size = Vector2(122, 124)
+size = Vector2(18.6835, 65.0337)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_88cwu"]
 atlas = ExtResource("6_dyt4g")
@@ -74,9 +74,13 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ho622"]
-size = Vector2(170.026, 326.326)
+size = Vector2(170.026, 175.966)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_doaya"]
+atlas = ExtResource("7_xe31r")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ckpao"]
 atlas = ExtResource("7_xe31r")
 region = Rect2(0, 16, 16, 16)
 
@@ -87,6 +91,10 @@ region = Rect2(0, 0, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_litdd"]
 atlas = ExtResource("7_xe31r")
 region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dde4s"]
+atlas = ExtResource("7_xe31r")
+region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_aqhny"]
 animations = [{
@@ -100,10 +108,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_ckpao")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_x805r")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_litdd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dde4s")
 }],
 "loop": true,
 "name": &"default",
@@ -111,7 +125,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r70q2"]
-size = Vector2(174.609, 58.929)
+size = Vector2(229.616, 87.4437)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dyt4g"]
 atlas = ExtResource("6_dyt4g")
@@ -173,6 +187,10 @@ size = Vector2(170.026, 326.326)
 atlas = ExtResource("7_xe31r")
 region = Rect2(0, 16, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmdoi"]
+atlas = ExtResource("7_xe31r")
+region = Rect2(0, 16, 16, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_edthq"]
 atlas = ExtResource("7_xe31r")
 region = Rect2(0, 0, 16, 16)
@@ -180,6 +198,10 @@ region = Rect2(0, 0, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_kj2ws"]
 atlas = ExtResource("7_xe31r")
 region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aqhny"]
+atlas = ExtResource("7_xe31r")
+region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ckpao"]
 animations = [{
@@ -193,10 +215,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_kmdoi")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_edthq")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_kj2ws")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aqhny")
 }],
 "loop": true,
 "name": &"default",
@@ -350,15 +378,16 @@ shape = SubResource("RectangleShape2D_7areq")
 [node name="Saltador Rosa" type="StaticBody2D" parent="."]
 position = Vector2(933, -98.9999)
 rotation = -0.835633
-scale = Vector2(0.207093, 0.561468)
+scale = Vector2(0.546077, 0.760633)
 
 [node name="Area_Saltador_rosa" type="Area2D" parent="Saltador Rosa"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Saltador Rosa/Area_Saltador_rosa"]
-position = Vector2(77.3042, 0.892883)
+position = Vector2(78.6934, 5.63276)
 shape = SubResource("RectangleShape2D_6sdvd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Saltador Rosa"]
+position = Vector2(6.36536, 2.76447)
 shape = SubResource("RectangleShape2D_daqp7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Saltador Rosa"]
@@ -370,12 +399,12 @@ sprite_frames = SubResource("SpriteFrames_kmdoi")
 
 [node name="Boton rosa" type="Area2D" parent="."]
 modulate = Color(1, 0.905882, 0.945098, 1)
-position = Vector2(389, -138)
+position = Vector2(385, -152)
 rotation = -0.360052
-scale = Vector2(0.195481, 0.195481)
+scale = Vector2(0.284446, 0.392345)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boton rosa"]
-position = Vector2(21.6276, -86.4337)
+position = Vector2(7.9729, -12.3902)
 scale = Vector2(1.00332, 1.00168)
 shape = SubResource("RectangleShape2D_ho622")
 
@@ -387,7 +416,6 @@ sprite_frames = SubResource("SpriteFrames_aqhny")
 animation = &"a"
 
 [node name="Saltador verde" type="StaticBody2D" parent="."]
-modulate = Color(0, 1, 0, 1)
 position = Vector2(741, -33.0001)
 rotation = -0.962425
 scale = Vector2(0.232269, 0.297115)
@@ -395,7 +423,7 @@ scale = Vector2(0.232269, 0.297115)
 [node name="Area_Saltador_Verde" type="Area2D" parent="Saltador verde"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Saltador verde/Area_Saltador_Verde"]
-position = Vector2(77.3042, 0.892883)
+position = Vector2(104.808, -3.33643)
 shape = SubResource("RectangleShape2D_r70q2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Saltador verde"]
@@ -411,8 +439,8 @@ position = Vector2(-18.139, 0)
 shape = SubResource("RectangleShape2D_c8kry")
 
 [node name="Boton Verde" type="Area2D" parent="."]
-position = Vector2(924, 623)
-rotation = 2.19901
+position = Vector2(921, 624)
+rotation = 2.11199
 scale = Vector2(0.195481, 0.195481)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boton Verde"]
@@ -422,10 +450,9 @@ shape = SubResource("RectangleShape2D_0aarr")
 
 [node name="Verda" type="AnimatedSprite2D" parent="Boton Verde"]
 position = Vector2(35.0258, -82.3467)
-rotation = -0.0782072
+rotation = 0.0308
 scale = Vector2(13.638, 17.6524)
 sprite_frames = SubResource("SpriteFrames_ckpao")
-animation = &"a"
 
 [node name="Zona mortal" type="StaticBody2D" parent="."]
 position = Vector2(425, 86)
@@ -729,8 +756,8 @@ rotation = -0.141973
 shape = SubResource("RectangleShape2D_obf8r")
 
 [node name="Plataforma8" type="StaticBody2D" parent="Plataformas/Plataformas altas"]
-position = Vector2(1110, 680)
-rotation = 0.562675
+position = Vector2(1110.84, 660.584)
+rotation = 0.716116
 scale = Vector2(1, 2.89238)
 
 [node name="Sprite2D" type="Sprite2D" parent="Plataformas/Plataformas altas/Plataforma8"]
@@ -743,8 +770,8 @@ rotation = -0.141973
 shape = SubResource("RectangleShape2D_iw32h")
 
 [node name="Plataforma9" type="StaticBody2D" parent="Plataformas/Plataformas altas"]
-position = Vector2(986.985, 771.742)
-rotation = -2.10702
+position = Vector2(984.977, 765.745)
+rotation = -1.99415
 scale = Vector2(1, 2.24272)
 
 [node name="Sprite2D" type="Sprite2D" parent="Plataformas/Plataformas altas/Plataforma9"]
@@ -785,8 +812,8 @@ rotation = -0.141973
 shape = SubResource("RectangleShape2D_w7a3w")
 
 [node name="Plataforma14" type="StaticBody2D" parent="Plataformas/Plataformas altas"]
-position = Vector2(187, 700)
-rotation = -0.759611
+position = Vector2(181.875, 685.769)
+rotation = -0.675507
 scale = Vector2(1, 3.80784)
 
 [node name="Sprite2D" type="Sprite2D" parent="Plataformas/Plataformas altas/Plataforma14"]
@@ -813,7 +840,7 @@ rotation = -0.141973
 shape = SubResource("RectangleShape2D_3pjgb")
 
 [node name="Plataforma16" type="StaticBody2D" parent="Plataformas/Plataformas altas"]
-position = Vector2(86, 486)
+position = Vector2(67.6273, 491.914)
 rotation = -0.225295
 scale = Vector2(1, 2.63938)
 
@@ -827,8 +854,8 @@ rotation = -0.141973
 shape = SubResource("RectangleShape2D_3ows8")
 
 [node name="Plataforma17" type="StaticBody2D" parent="Plataformas/Plataformas altas"]
-position = Vector2(27, 336)
-rotation = 0.073197
+position = Vector2(44.4233, 331.944)
+rotation = 0.25063
 scale = Vector2(1, 2.28982)
 
 [node name="Sprite2D" type="Sprite2D" parent="Plataformas/Plataformas altas/Plataforma17"]

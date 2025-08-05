@@ -20,14 +20,19 @@ var jugador_dentro_rosa: bool = false
 
 func _ready() -> void:
 	audio_stream_player.play()
+	$"Boton Verde/Verda".play("default")
+	$"Boton rosa/Rosa".play("default")
 
 func _process(delta: float) -> void:
 	if jugador_dentro_verde == true and Input.is_action_pressed("Presionar"):
 		boton_verde_activado = true
 		$"Saltador verde/AnimatedSprite2D".play("Nave verde")
-	
+		$"Boton Verde/Verda".play("a")
+		
 	if jugador_dentro_rosa == true and Input.is_action_pressed("Presionar"):
 		boton_rosa_activado = true
+		$"Boton rosa/Rosa".play("a")
+		$"Saltador Rosa/AnimatedSprite2D".play("default")
 		
 	if Input.is_action_just_pressed("zoom"):
 		if !zoomactive:
@@ -91,37 +96,35 @@ func _on_area_saltador_verde_body_exited(body: Node2D) -> void:
 func _on_boton_verde_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		jugador_dentro_verde = true
-		$"Boton Verde/Verda".play("default")
+
 
 func _on_boton_verde_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		jugador_dentro_verde = false
-		$"Boton Verde/Verda".play("a")
+		
 #----------------------------------------------
 #------------ Codigo boton y saltador rosa----------------------------
 
 func _on_boton_rosa_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player") and boton_verde_activado == true:
 		jugador_dentro_rosa = true
-		$"Boton rosa/Rosa".play("default")
+		
 
 func _on_boton_rosa_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		jugador_dentro_rosa = false
-		$"Boton rosa/Rosa".play("a")
+		
 
 func _on_area_saltador_rosa_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player") and boton_rosa_activado == true:
 		var player = get_tree().get_nodes_in_group("Player")
 		player[0].JUMP_FORCE -= 2500
-		$"Saltador Rosa/AnimatedSprite2D".play("default")
 		salto_pontenciado = true
 
 func _on_area_saltador_rosa_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player") and salto_pontenciado == true:
 		var player = get_tree().get_nodes_in_group("Player")
 		player[0].JUMP_FORCE += 2500
-		$"Saltador Rosa/AnimatedSprite2D".stop()
 		salto_pontenciado = false
 
 #----------------------------------------------------------
