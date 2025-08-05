@@ -90,6 +90,7 @@ func _on_area_nave_body_entered(body: Node2D) -> void:
 	if boton_activado == true and body.is_in_group("Player"):
 		get_tree().change_scene_to_file("res://Escenas/Interface/menu_principal.tscn")
 		Global.niveles += 1
+		Global.save_data()
 
 func _on_cueva_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):

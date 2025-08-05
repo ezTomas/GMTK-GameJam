@@ -12,13 +12,13 @@ func _process(delta: float) -> void:
 	control_monedas()
 
 func control_nivel():
-	if Global.niveles <= 1:
+	if Global.niveles == 0:
 		nivel_2.disabled = false
 	
-	if Global.niveles <= 2:
+	if Global.niveles == 1:
 		nivel_3.disabled = false
 	
-	if Global.niveles <= 3:
+	if Global.niveles == 2:
 		nivel_4.disabled = false
 
 func _on_nivel_1_pressed() -> void:

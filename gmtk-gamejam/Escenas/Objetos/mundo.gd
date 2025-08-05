@@ -18,7 +18,7 @@ var cameraDefaultRotation
 var cameraDefaultZoom
 
 func _ready() -> void:
-	if Global.monedas_nivel_1 >= 3:
+	if Global.monedas_nivel_1 == 3:
 		$Coleccionable.visible = false
 		$Coleccionable2.visible = false
 		$Coleccionable3.visible = false
@@ -99,6 +99,7 @@ func _on_area_nave_body_entered(body: Node2D) -> void:
 	if boton_activado == true and body.is_in_group("Player"):
 		get_tree().change_scene_to_file("res://Escenas/Interface/nieveles.tscn")
 		Global.niveles += 1
+		Global.save_data()
 
 #----------Coleccionables------------------------
 func _on_coleccionable_body_entered(body: Node2D) -> void:
