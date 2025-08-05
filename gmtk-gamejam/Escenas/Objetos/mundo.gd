@@ -123,3 +123,4 @@ func _on_coleccionable_3_body_entered(body: Node2D) -> void:
 		Global.monedas_nivel_1 += 1
 		Global.save_data()
 		$Coleccionable3.queue_free()
+#asdasdweas
