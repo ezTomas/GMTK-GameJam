@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bqfaxhl8nwo1p"]
+[gd_scene load_steps=32 format=3 uid="uid://bqfaxhl8nwo1p"]
 
 [ext_resource type="PackedScene" uid="uid://ddb2htlgb567v" path="res://Escenas/Player.tscn" id="1_lgngo"]
 [ext_resource type="Script" uid="uid://chp6mvv8u85tr" path="res://Escenas/Objetos/mundo.gd" id="1_otwa2"]
@@ -22,6 +22,10 @@ size = Vector2(170.026, 326.326)
 atlas = ExtResource("6_08jqv")
 region = Rect2(0, 16, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_1nmim"]
+atlas = ExtResource("6_08jqv")
+region = Rect2(0, 16, 16, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_1i8ix"]
 atlas = ExtResource("6_08jqv")
 region = Rect2(0, 0, 16, 16)
@@ -29,6 +33,10 @@ region = Rect2(0, 0, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_fpj1o"]
 atlas = ExtResource("6_08jqv")
 region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1gssc"]
+atlas = ExtResource("6_08jqv")
+region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1nmim"]
 animations = [{
@@ -42,10 +50,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_1nmim")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_1i8ix")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fpj1o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1gssc")
 }],
 "loop": true,
 "name": &"default",
@@ -56,7 +70,7 @@ animations = [{
 size = Vector2(174.609, 58.929)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_awk8m"]
-size = Vector2(122, 124)
+size = Vector2(70.1724, 89.0523)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q4xwk"]
 atlas = ExtResource("7_08jqv")
@@ -157,9 +171,9 @@ scale = Vector2(4.00412, 6.86326)
 texture = ExtResource("4_aou4a")
 
 [node name="Boton" type="Area2D" parent="."]
-position = Vector2(428, 171)
-rotation = -0.44875
-scale = Vector2(0.195481, 0.195481)
+position = Vector2(411, 174)
+rotation = -0.627671
+scale = Vector2(0.183741, 0.237335)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boton"]
 position = Vector2(21.6276, -86.4337)
@@ -170,11 +184,10 @@ shape = SubResource("RectangleShape2D_gv8d2")
 position = Vector2(31.4116, -41.6522)
 scale = Vector2(14.3017, 15.2304)
 sprite_frames = SubResource("SpriteFrames_1nmim")
-animation = &"a"
 
 [node name="Saltador" type="StaticBody2D" parent="."]
-position = Vector2(948, 473)
-scale = Vector2(0.207093, 0.561468)
+position = Vector2(947, 475)
+scale = Vector2(0.327073, 0.561468)
 
 [node name="Area_Saltador" type="Area2D" parent="Saltador"]
 
@@ -183,6 +196,7 @@ position = Vector2(77.3042, 0.892883)
 shape = SubResource("RectangleShape2D_tokhs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Saltador"]
+position = Vector2(-25.9138, 5.34308)
 shape = SubResource("RectangleShape2D_awk8m")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Saltador"]
@@ -216,6 +230,7 @@ scale = Vector2(2.66038, 2.66038)
 [node name="Coleccionable" parent="." instance=ExtResource("8_tokhs")]
 position = Vector2(853, 222)
 scale = Vector2(1.7503, 1.7503)
+input_pickable = false
 
 [node name="Coleccionable2" parent="." instance=ExtResource("8_tokhs")]
 position = Vector2(1118, 474)
