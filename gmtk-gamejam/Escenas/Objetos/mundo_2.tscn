@@ -408,7 +408,6 @@ frame_progress = 0.993913
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Saltador verde"]
 position = Vector2(-18.139, 0)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_c8kry")
 
 [node name="Boton Verde" type="Area2D" parent="."]
@@ -543,7 +542,6 @@ texture = ExtResource("6_7areq")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/Plataformas Bajas/Plataforma"]
 position = Vector2(-1.15564, 0.288544)
 rotation = -0.141973
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_hton8")
 
 [node name="Plataforma2" type="StaticBody2D" parent="Plataformas/Plataformas Bajas"]
@@ -558,7 +556,6 @@ texture = ExtResource("6_7areq")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/Plataformas Bajas/Plataforma2"]
 position = Vector2(-1.85059, 0.242004)
 rotation = -0.141973
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_kqefx")
 
 [node name="Plataforma3" type="StaticBody2D" parent="Plataformas/Plataformas Bajas"]

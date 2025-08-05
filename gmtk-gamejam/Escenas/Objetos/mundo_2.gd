@@ -134,14 +134,17 @@ func _on_area_mortal_body_entered(body: Node2D) -> void:
 func _on_coleccionable_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		Global.monedas_nivel_2 += 1
+		Global.save_data()
 		$Coleccionable.queue_free()
 
 func _on_coleccionable_2_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		Global.monedas_nivel_2 += 1
+		Global.save_data()
 		$Coleccionable2.queue_free()
 
 func _on_coleccionable_3_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		Global.monedas_nivel_2 += 1
+		Global.save_data()
 		$Coleccionable3.queue_free()

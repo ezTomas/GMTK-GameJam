@@ -72,7 +72,7 @@ func control_monedas():
 		$"TextureRect/VBoxContainer/HBoxContainer/TextureRect2/Nivel2/HBoxContainer2/Moneda 1".visible = true
 		$"TextureRect/VBoxContainer/HBoxContainer/TextureRect2/Nivel2/HBoxContainer2/Moneda 2".visible = true
 	
-	if Global.monedas_nivel_2 >= 3: 
+	if Global.monedas_nivel_2 == 3: 
 		$"TextureRect/VBoxContainer/HBoxContainer/TextureRect2/Nivel2/HBoxContainer2/No Moneda 1".visible = false
 		$"TextureRect/VBoxContainer/HBoxContainer/TextureRect2/Nivel2/HBoxContainer2/No Moneda 2".visible = false
 		$"TextureRect/VBoxContainer/HBoxContainer/TextureRect2/Nivel2/HBoxContainer2/No Moneda 3".visible = false
@@ -93,7 +93,7 @@ func control_monedas():
 		$"TextureRect/VBoxContainer/HBoxContainer2/TextureRect3/Nivel3/HBoxContainer2/Moneda 1".visible = true
 		$"TextureRect/VBoxContainer/HBoxContainer2/TextureRect3/Nivel3/HBoxContainer2/Moneda 2".visible = true
 	
-	if Global.monedas_nivel_3 >= 3: 
+	if Global.monedas_nivel_3 == 3: 
 		$"TextureRect/VBoxContainer/HBoxContainer2/TextureRect3/Nivel3/HBoxContainer2/No Moneda 1".visible = false
 		$"TextureRect/VBoxContainer/HBoxContainer2/TextureRect3/Nivel3/HBoxContainer2/No Moneda 2".visible = false
 		$"TextureRect/VBoxContainer/HBoxContainer2/TextureRect3/Nivel3/HBoxContainer2/No Moneda 3".visible = false
@@ -114,7 +114,7 @@ func control_monedas():
 		$"TextureRect/VBoxContainer/HBoxContainer2/TextureRect2/Nivel4/HBoxContainer2/Moneda 1".visible = true
 		$"TextureRect/VBoxContainer/HBoxContainer2/TextureRect2/Nivel4/HBoxContainer2/Moneda 2".visible = true
 	
-	if Global.monedas_nivel_4 >= 3: 
+	if Global.monedas_nivel_4 == 3: 
 		$"TextureRect/VBoxContainer/HBoxContainer2/TextureRect2/Nivel4/HBoxContainer2/No Moneda 1".visible = false
 		$"TextureRect/VBoxContainer/HBoxContainer2/TextureRect2/Nivel4/HBoxContainer2/No Moneda 2".visible = false
 		$"TextureRect/VBoxContainer/HBoxContainer2/TextureRect2/Nivel4/HBoxContainer2/No Moneda 3".visible = false

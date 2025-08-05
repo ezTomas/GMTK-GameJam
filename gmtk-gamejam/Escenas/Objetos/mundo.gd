@@ -7,6 +7,8 @@ var jugador_dentro: bool = false
 var boton_activado: bool = false
 var muro_destruido: bool = false
 
+
+
 @onready var player: RigidBody2D = $Player
 @onready var camera: Camera2D = $Camera2D
 
@@ -14,6 +16,12 @@ var zoomactive=false
 var cameraDefaultPosition
 var cameraDefaultRotation
 var cameraDefaultZoom
+
+func _ready() -> void:
+	if Global.monedas_nivel_1 >= 3:
+		$Coleccionable.visible = false
+		$Coleccionable2.visible = false
+		$Coleccionable3.visible = false
 
 func _process(delta: float) -> void:
 	if jugador_dentro == true and Input.is_action_pressed("Presionar") and muro_destruido == false:
@@ -94,16 +102,19 @@ func _on_area_nave_body_entered(body: Node2D) -> void:
 
 #----------Coleccionables------------------------
 func _on_coleccionable_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Player"):
+	if body.is_in_group("Player") and $Coleccionable.visible == true:
 		Global.monedas_nivel_1 += 1
+		Global.save_data()
 		$Coleccionable.queue_free()
 
 func _on_coleccionable_2_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Player"):
+	if body.is_in_group("Player") and $Coleccionable2.visible == true:
 		Global.monedas_nivel_1 += 1
+		Global.save_data()
 		$Coleccionable2.queue_free()
 
 func _on_coleccionable_3_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Player"):
+	if body.is_in_group("Player") and $Coleccionable3.visible == true:
 		Global.monedas_nivel_1 += 1
+		Global.save_data()
 		$Coleccionable3.queue_free()
