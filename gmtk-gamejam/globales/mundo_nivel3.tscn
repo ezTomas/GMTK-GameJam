@@ -179,7 +179,7 @@ shape = SubResource("RectangleShape2D_jwx8c")
 position = Vector2(593, 486)
 
 [node name="Player" parent="." node_paths=PackedStringArray("planet") instance=ExtResource("3_eycmq")]
-position = Vector2(684, -50)
+position = Vector2(667, -29)
 scale = Vector2(0.574063, 0.574063)
 planet = NodePath("../Planet_nivel3")
 JUMP_FORCE = -1250
