@@ -18,11 +18,11 @@ var cameraDefaultZoom
 
 func _ready() -> void:
 	if Global.monedas_nivel_3 >= 1:
-		$Coleccionable
+		$Coleccionable.visible = false
 	if Global.monedas_nivel_3 >= 2:
-		$Coleccionable2
+		$Coleccionable2.visible = false
 	if Global.monedas_nivel_3 >= 3:
-		$Coleccionable3
+		$Coleccionable3.visible = false
 	
 	audio_stream_player.play()
 	$Boton/AnimatedSprite2D2.play("default")
