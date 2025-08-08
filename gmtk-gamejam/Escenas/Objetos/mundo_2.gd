@@ -19,6 +19,13 @@ var jugador_dentro_verde: bool = false
 var jugador_dentro_rosa: bool = false
 
 func _ready() -> void:
+	if Global.monedas_nivel_2 >= 1:
+		$Coleccionable.visible = false
+	if Global.monedas_nivel_2 >= 2:
+		$Coleccionable3.visible = false
+	if Global.monedas_nivel_2 >= 3:
+		$Coleccionable2.visible = false 
+		
 	audio_stream_player.play()
 	$"Boton Verde/Verda".play("default")
 	$"Boton rosa/Rosa".play("default")
@@ -136,19 +143,19 @@ func _on_area_mortal_body_entered(body: Node2D) -> void:
 		
 		
 func _on_coleccionable_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Player"):
+	if body.is_in_group("Player") and $Coleccionable.visible == true:
 		Global.monedas_nivel_2 += 1
 		Global.save_data()
 		$Coleccionable.queue_free()
 
 func _on_coleccionable_2_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Player"):
+	if body.is_in_group("Player") and $Coleccionable2.visible == true:
 		Global.monedas_nivel_2 += 1
 		Global.save_data()
 		$Coleccionable2.queue_free()
 
 func _on_coleccionable_3_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Player"):
+	if body.is_in_group("Player") and $Coleccionable3.visible == true:
 		Global.monedas_nivel_2 += 1
 		Global.save_data()
 		$Coleccionable3.queue_free()

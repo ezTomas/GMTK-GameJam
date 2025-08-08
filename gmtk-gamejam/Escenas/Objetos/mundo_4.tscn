@@ -297,7 +297,6 @@ shape = SubResource("RectangleShape2D_plavx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Saltador Rosa"]
 position = Vector2(-27.2571, -0.983215)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_7bk2g")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Saltador Rosa"]

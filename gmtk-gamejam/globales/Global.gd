@@ -21,7 +21,6 @@ func _ready() -> void:
 
 func load_data():
 	var file = FileAccess.open(Savefile, FileAccess.READ)
-	print(monedas_nivel_1)
 	if file == null:
 		save_data()
 	else:

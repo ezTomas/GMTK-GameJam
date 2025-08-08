@@ -35,6 +35,7 @@ func _on_nivel_3_pressed() -> void:
 		get_tree().change_scene_to_file("res://globales/mundo_nivel3.tscn")
 
 func _on_nivel_4_pressed() -> void:
+	print("asdw")
 	if Global.niveles >= 3:
 		get_tree().change_scene_to_file("res://Escenas/Objetos/mundo_4.tscn")
 		

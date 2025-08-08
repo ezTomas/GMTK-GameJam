@@ -17,6 +17,13 @@ var cameraDefaultRotation
 var cameraDefaultZoom
 
 func _ready() -> void:
+	if Global.monedas_nivel_3 >= 1:
+		$Coleccionable
+	if Global.monedas_nivel_3 >= 2:
+		$Coleccionable2
+	if Global.monedas_nivel_3 >= 3:
+		$Coleccionable3
+	
 	audio_stream_player.play()
 	$Boton/AnimatedSprite2D2.play("default")
 
@@ -107,19 +114,19 @@ func _on_cueva_body_exited(body: Node2D) -> void:
 
 
 func _on_coleccionable_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Player"):
+	if body.is_in_group("Player") and $Coleccionable.visible == true:
 		Global.monedas_nivel_3 += 1
 		Global.save_data()
 		$Coleccionable.queue_free()
 
 func _on_coleccionable_2_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Player"):
+	if body.is_in_group("Player") and $Coleccionable2.visible == true:
 		Global.monedas_nivel_3 += 1
 		Global.save_data()
 		$Coleccionable2.queue_free()
 
 func _on_coleccionable_3_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Player"):
+	if body.is_in_group("Player") and $Coleccionable3.visible == true:
 		Global.monedas_nivel_3 += 1
 		Global.save_data()
 		$Coleccionable3.queue_free()

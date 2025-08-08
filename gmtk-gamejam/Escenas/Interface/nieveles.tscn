@@ -259,9 +259,12 @@ layout_mode = 2
 texture = ExtResource("5_vybbp")
 
 [node name="Nivel4" type="Button" parent="TextureRect/VBoxContainer/HBoxContainer2/TextureRect2"]
-layout_mode = 2
-offset_right = 319.0
-offset_bottom = 286.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 icon = ExtResource("10_tcrkb")
 flat = true
 
@@ -272,9 +275,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -40.0
-offset_right = 20.0
+offset_left = 91.5
+offset_top = 238.0
+offset_right = 219.5
+offset_bottom = 278.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -315,3 +319,4 @@ expand_mode = 2
 [connection signal="pressed" from="TextureRect/VBoxContainer/HBoxContainer/TextureRect/Nivel1" to="." method="_on_nivel_1_pressed"]
 [connection signal="pressed" from="TextureRect/VBoxContainer/HBoxContainer/TextureRect2/Nivel2" to="." method="_on_nivel_2_pressed"]
 [connection signal="pressed" from="TextureRect/VBoxContainer/HBoxContainer2/TextureRect3/Nivel3" to="." method="_on_nivel_3_pressed"]
+[connection signal="pressed" from="TextureRect/VBoxContainer/HBoxContainer2/TextureRect2/Nivel4" to="." method="_on_nivel_4_pressed"]

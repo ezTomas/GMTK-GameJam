@@ -20,9 +20,11 @@ var cameraDefaultZoom
 func _ready() -> void:
 	$Boton/AnimatedSprite2D.play("default")
 	
-	if Global.monedas_nivel_1 == 3:
+	if Global.monedas_nivel_1 >= 1:
 		$Coleccionable.visible = false
+	if Global.monedas_nivel_1 >= 2:
 		$Coleccionable2.visible = false
+	if Global.monedas_nivel_1 >= 3:
 		$Coleccionable3.visible = false
 
 
